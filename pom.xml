@@ -31,7 +31,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.hydrapvp</groupId>
+            <groupId>gg.convict</groupId>
             <artifactId>Libraries-Bukkit</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>provided</scope>

@@ -4,6 +4,7 @@ import gg.convict.prison.PrisonPlugin;
 import lombok.Getter;
 import lombok.Setter;
 import org.hydrapvp.libraries.configuration.StaticConfiguration;
+import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
 import org.hydrapvp.libraries.configuration.defaults.MongoConfig;
 
 import java.io.File;
