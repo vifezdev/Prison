@@ -1,0 +1,65 @@
+package gg.convict.prison.privatemine.runnable;
+
+import com.sk89q.worldedit.Vector;
+import gg.convict.prison.privatemine.Mine;
+import gg.convict.prison.privatemine.MineModule;
+import gg.convict.prison.privatemine.grid.MineGrid;
+import gg.convict.prison.privatemine.grid.MineSchematic;
+import lombok.RequiredArgsConstructor;
+import org.bukkit.scheduler.BukkitRunnable;
+
+import java.util.function.Consumer;
+
+@RequiredArgsConstructor
+public class IslandRunnable extends BukkitRunnable {
+
+    public static final Vector STARTING_GRID_POINT
+            = new Vector(1500, 100, 1500);
+
+    private static final int GRID_SPACING = 500;
+
+    private final int amount;
+    private final MineGrid grid;
+    private final Consumer<Integer> consumer;
+
+    private int count = 0;
+
+    public IslandRunnable(int amount, Consumer<Integer> consumer) {
+        this.amount = amount;
+        this.consumer = consumer;
+        this.grid = MineModule.get().getHandler().getMineGrid();
+    }
+
+    @Override
+    public void run() {
+        try {
+            insertMine(true);
+            count += 1;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        if (count >= amount) {
+            consumer.accept(count);
+            grid.setCanPaste(true);
+
+            cancel();
+        }
+    }
+
+    public void insertMine(boolean addToList) throws Exception {
+        int index = grid.getIndex();
+        int copy = index + 1;
+
+        int x = STARTING_GRID_POINT.getBlockX() + (GRID_SPACING + index);
+        int z = STARTING_GRID_POINT.getBlockZ() + (GRID_SPACING * copy);
+
+        Mine mine = MineSchematic.DEFAULT.paste(x, z);
+        grid.incrementIndex();
+
+        if (addToList)
+            MineModule.get().getHandler()
+                    .getFreeMines().add(mine);
+    }
+
+}

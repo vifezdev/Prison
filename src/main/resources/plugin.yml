@@ -1,0 +1,5 @@
+name: Prison
+authors: [Tabai]
+version: 1.0-SNAPSHOT
+main: gg.convict.prison.PrisonPlugin
+depend: [Libraries, Core]
