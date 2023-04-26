@@ -111,8 +111,12 @@ public class Crate {
 
     public boolean hasLocation(Location location) {
         for (SimpleLocationConfig locationConfig : locations)
-            if (locationConfig.matches(location))
+            if (locationConfig.getX() == location.getX()
+                    && locationConfig.getY() == location.getY()
+                    && locationConfig.getZ() == location.getZ()
+                    && locationConfig.getWorld().equals(location.getWorld().getName())) {
                 return true;
+            }
 
         return false;
     }

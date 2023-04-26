@@ -43,8 +43,9 @@ public class CrateBreakListener implements Listener {
         event.setCancelled(true);
         block.setType(Material.AIR);
 
-        crate.getLocations().removeIf(locationConfig ->
-                locationConfig.matches(block.getLocation()));
+        crate.getLocations().removeIf(simpleLocationConfig ->
+                crate.hasLocation(block.getLocation()));
+
         module.saveConfig();
     }
 

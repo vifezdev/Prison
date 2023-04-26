@@ -28,7 +28,7 @@ public class MineSchematic {
 
     public static MineSchematic INSTANCE = new MineSchematic();
 
-    private static final File SCHEMATIC_DIR = new File(
+    public static final File SCHEMATIC_DIR = new File(
             JavaPlugin.getPlugin(WorldEditPlugin.class).getDataFolder(),
             "schematics"
     );
@@ -75,7 +75,7 @@ public class MineSchematic {
     }
 
     public File getSchematic(SchematicType type) {
-        return new File(SCHEMATIC_DIR, type.getFinalName());
+        return new File(SCHEMATIC_DIR, type.getFileName());
     }
 
     public static Location fromVector(Vector vector, World world) {

@@ -1,7 +1,6 @@
 package gg.convict.prison.privatemine.grid;
 
 import lombok.Getter;
-import org.apache.commons.lang.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -70,7 +69,7 @@ public enum SchematicType {
         this(new ItemStack(material), color, textName);
     }
 
-    public String getFinalName() {
+    public String getFileName() {
         return name().toLowerCase() + "_mine.schematic";
     }
 
