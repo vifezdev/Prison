@@ -1,7 +1,7 @@
 package gg.convict.prison.privatemine.grid;
 
 import gg.convict.prison.PrisonPlugin;
-import gg.convict.prison.privatemine.runnable.IslandRunnable;
+import gg.convict.prison.privatemine.grid.runnable.MineRunnable;
 import lombok.Data;
 
 import java.util.function.Consumer;
@@ -12,11 +12,11 @@ public class MineGrid {
     private boolean canPaste = true;
     private int index = 0;
 
-    public void copySchematics(int amount, Consumer<Integer> consumer) {
+    public void copySchematics(SchematicType type, int amount, Consumer<Integer> consumer) {
         if (!canPaste)
             return;
 
-        new IslandRunnable(amount, consumer).runTaskTimer(
+        new MineRunnable(type, amount, consumer).runTaskTimer(
                 PrisonPlugin.get(), 8L, 8L);
     }
 

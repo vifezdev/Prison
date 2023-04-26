@@ -10,7 +10,7 @@ import com.sk89q.worldedit.schematic.SchematicFormat;
 import gg.convict.prison.config.LocationConfig;
 import gg.convict.prison.privatemine.Mine;
 import gg.convict.prison.privatemine.MineModule;
-import gg.convict.prison.privatemine.runnable.IslandRunnable;
+import gg.convict.prison.privatemine.grid.runnable.MineRunnable;
 import gg.convict.prison.privatemine.util.AngleUtil;
 import lombok.Data;
 import org.bukkit.Location;
@@ -20,15 +20,13 @@ import org.bukkit.block.Block;
 import org.bukkit.block.Skull;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.hydrapvp.libraries.cuboid.Cuboid;
-import org.hydrapvp.libraries.utils.AngleUtils;
 
 import java.io.File;
 
 @Data
 public class MineSchematic {
 
-    public static final MineSchematic DEFAULT
-            = new MineSchematic();
+    public static MineSchematic INSTANCE = new MineSchematic();
 
     private static final File SCHEMATIC_DIR = new File(
             JavaPlugin.getPlugin(WorldEditPlugin.class).getDataFolder(),
@@ -44,9 +42,9 @@ public class MineSchematic {
                 .getEditSession(new BukkitWorld(world), Integer.MAX_VALUE);
     }
 
-    public Mine paste(int startX, int startZ) throws Exception {
-        CuboidClipboard clipboard = SchematicFormat.MCEDIT.load(getSchematic());
-        Vector pasteVector = new Vector(startX, IslandRunnable.STARTING_GRID_POINT.getY(), startZ);
+    public Mine paste(SchematicType type, int startX, int startZ) throws Exception {
+        CuboidClipboard clipboard = SchematicFormat.MCEDIT.load(getSchematic(type));
+        Vector pasteVector = new Vector(startX, MineRunnable.STARTING_GRID_POINT.getY(), startZ);
 
         clipboard.setOffset(new Vector(0, 0, 0));
         clipboard.paste(editSession, pasteVector, true);
@@ -76,8 +74,8 @@ public class MineSchematic {
         return mine;
     }
 
-    public File getSchematic() {
-        return new File(SCHEMATIC_DIR, "private-mine.schematic");
+    public File getSchematic(SchematicType type) {
+        return new File(SCHEMATIC_DIR, type.getFinalName());
     }
 
     public static Location fromVector(Vector vector, World world) {
