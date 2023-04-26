@@ -12,7 +12,7 @@ import java.io.File;
 @Getter @Setter
 public class PrisonConfig implements StaticConfiguration {
 
-    private LocationConfig locationConfig = null;
+    private LocationConfig spawnLocation = null;
     private final MongoConfig mongoConfig = new MongoConfig();
 
     public static File getFile() {
