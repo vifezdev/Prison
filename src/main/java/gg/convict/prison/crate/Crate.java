@@ -1,6 +1,5 @@
 package gg.convict.prison.crate;
 
-import gg.convict.prison.config.LocationConfig;
 import gg.convict.prison.crate.reward.CrateReward;
 import gg.convict.prison.crate.util.CrateUtil;
 import gg.convict.prison.crate.util.IntRange;
@@ -13,6 +12,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.hydrapvp.libraries.builder.ItemBuilder;
+import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
+import org.hydrapvp.libraries.configuration.defaults.SimpleLocationConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ public class Crate {
 
     private final List<String> hologramLines = new ArrayList<>();
     private final List<CrateReward> rewards = new ArrayList<>();
-    private final List<LocationConfig> locations = new ArrayList<>();
+    private final List<SimpleLocationConfig> locations = new ArrayList<>();
 
     private transient IntRange rewardRange = new IntRange(1, 1);
 
@@ -109,10 +110,9 @@ public class Crate {
     }
 
     public boolean hasLocation(Location location) {
-        for (LocationConfig locationConfig : locations) {
+        for (SimpleLocationConfig locationConfig : locations)
             if (locationConfig.matches(location))
                 return true;
-        }
 
         return false;
     }

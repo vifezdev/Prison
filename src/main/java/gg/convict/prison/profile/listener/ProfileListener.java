@@ -1,7 +1,6 @@
 package gg.convict.prison.profile.listener;
 
 import gg.convict.prison.PrisonPlugin;
-import gg.convict.prison.config.LocationConfig;
 import gg.convict.prison.profile.ProfileModule;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
@@ -12,7 +11,7 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
+import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
 
 @RequiredArgsConstructor
 public class ProfileListener implements Listener {
@@ -31,7 +30,7 @@ public class ProfileListener implements Listener {
         player.setFoodLevel(20);
         player.setHealth(20);
 
-        LocationConfig locationConfig = PrisonPlugin.get().getPrisonConfig().getLocationConfig();
+        LocationConfig locationConfig = PrisonPlugin.get().getPrisonConfig().getSpawnLocation();
 
         if (!player.hasPlayedBefore()) {
             if (locationConfig != null)

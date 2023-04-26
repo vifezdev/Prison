@@ -4,6 +4,7 @@ import gg.convict.prison.PrisonPlugin;
 import lombok.Getter;
 import lombok.Setter;
 import org.hydrapvp.libraries.configuration.StaticConfiguration;
+import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
 import org.hydrapvp.libraries.configuration.defaults.MongoConfig;
 
 import java.io.File;
@@ -11,7 +12,7 @@ import java.io.File;
 @Getter @Setter
 public class PrisonConfig implements StaticConfiguration {
 
-    private LocationConfig locationConfig = null;
+    private LocationConfig spawnLocation = null;
     private final MongoConfig mongoConfig = new MongoConfig();
 
     public static File getFile() {

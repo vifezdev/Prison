@@ -25,12 +25,16 @@ public class Profile {
 
     private ProfileStatistics statistics;
 
-    public Profile(UUID uuid, boolean load) {
+    public Profile(UUID uuid) {
         this.uuid = uuid;
         this.statistics = new ProfileStatistics(this);
+    }
 
-        if (load)
-            load();
+    public Profile(Document document) {
+        this.uuid = UUID.fromString(document.getString("uuid"));
+        this.rank = document.getLong("rank");
+        this.tokens = document.getInteger("tokens");
+        this.balance = document.getInteger("balance");
     }
 
     public Document toBson() {
@@ -45,29 +49,8 @@ public class Profile {
         return document;
     }
 
-    public void load() {
-        PrisonPlugin.EXECUTOR.execute(() -> {
-            Document document = MongoModule.get().getProfile(uuid);
-
-            if (document == null)
-                return;
-
-            this.rank = document.getLong("rank");
-            this.tokens = document.getInteger("tokens");
-            this.balance = document.getInteger("balance");
-            this.statistics.update(document.get("statistics", Document.class));
-        });
-    }
-
     public void save() {
-        PrisonPlugin.EXECUTOR.execute(() -> {
-            MongoCollection<Document> collection = MongoModule.get().getProfiles();
-
-            collection.replaceOne(
-                    Filters.eq("uuid", uuid.toString()),
-                    toBson(),
-                    MongoService.REPLACE_OPTIONS);
-        });
+        ProfileModule.get().getProfileHandler().saveProfile(this, true);
     }
 
     public void sendMessage(String message) {

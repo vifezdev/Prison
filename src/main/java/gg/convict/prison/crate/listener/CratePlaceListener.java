@@ -1,7 +1,6 @@
 package gg.convict.prison.crate.listener;
 
 import gg.convict.prison.PrisonPlugin;
-import gg.convict.prison.config.LocationConfig;
 import gg.convict.prison.crate.Crate;
 import gg.convict.prison.crate.CrateModule;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +11,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.metadata.FixedMetadataValue;
+import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
+import org.hydrapvp.libraries.configuration.defaults.SimpleLocationConfig;
 import org.hydrapvp.libraries.utils.CC;
 
 @RequiredArgsConstructor
@@ -39,7 +39,7 @@ public class CratePlaceListener implements Listener {
             return;
 
         crate.getLocations().add(
-                new LocationConfig(block.getLocation()));
+                new SimpleLocationConfig(block.getLocation()));
 
         module.saveConfig();
         player.sendMessage(CC.format(

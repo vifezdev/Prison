@@ -7,7 +7,6 @@ import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.bukkit.BukkitWorld;
 import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 import com.sk89q.worldedit.schematic.SchematicFormat;
-import gg.convict.prison.config.LocationConfig;
 import gg.convict.prison.privatemine.Mine;
 import gg.convict.prison.privatemine.MineModule;
 import gg.convict.prison.privatemine.grid.runnable.MineRunnable;
@@ -19,6 +18,7 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.Skull;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
 import org.hydrapvp.libraries.cuboid.Cuboid;
 
 import java.io.File;
