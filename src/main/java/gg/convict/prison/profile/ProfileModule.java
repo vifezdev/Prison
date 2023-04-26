@@ -39,19 +39,22 @@ public class ProfileModule extends PluginModule {
     public List<Object> getCommands() {
         return ImmutableList.of(
                 new TokenCommands(),
-                new BalanceCommands());
+                new BalanceCommands()
+        );
     }
 
     @Override
     public List<Listener> getListeners() {
         return ImmutableList.of(
-                new ProfileListener(this));
+                new ProfileListener(this)
+        );
     }
 
     @Override
     public Map<Class<?>, ParameterType<?>> getParameterTypes() {
         return ImmutableMap.of(
-                Profile.class, new ProfileParameter());
+                Profile.class, new ProfileParameter()
+        );
     }
 
     public static ProfileModule get() {

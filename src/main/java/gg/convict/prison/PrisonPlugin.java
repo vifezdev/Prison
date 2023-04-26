@@ -55,7 +55,8 @@ public class PrisonPlugin extends JavaPlugin {
                 new ProfileModule(),
                 new PickaxeModule(),
                 new BankNoteModule(),
-                new ScoreboardModule());
+                new ScoreboardModule()
+        );
 
         new TabService(this, new PrisonTabAdapter());
     }
