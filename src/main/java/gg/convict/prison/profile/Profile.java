@@ -1,21 +1,17 @@
 package gg.convict.prison.profile;
 
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.Filters;
-import gg.convict.prison.PrisonPlugin;
-import gg.convict.prison.mongo.MongoModule;
 import gg.convict.prison.profile.statistic.ProfileStatistics;
 import lombok.Getter;
 import lombok.Setter;
 import org.bson.Document;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.mongo.MongoService;
 import org.hydrapvp.libraries.utils.CC;
 
 import java.util.UUID;
 
-@Getter @Setter
+@Getter
+@Setter
 public class Profile {
 
     private final UUID uuid;
@@ -27,7 +23,7 @@ public class Profile {
 
     public Profile(UUID uuid) {
         this.uuid = uuid;
-        this.statistics = new ProfileStatistics(this);
+        this.statistics = new ProfileStatistics(uuid);
     }
 
     public Profile(Document document) {
@@ -35,6 +31,12 @@ public class Profile {
         this.rank = document.getLong("rank");
         this.tokens = document.getInteger("tokens");
         this.balance = document.getInteger("balance");
+
+        ProfileStatistics statistics = new ProfileStatistics(uuid);
+        if (document.containsKey("statistics"))
+            statistics = new ProfileStatistics(document.get("statistics", Document.class));
+
+        this.statistics = statistics;
     }
 
     public Document toBson() {
