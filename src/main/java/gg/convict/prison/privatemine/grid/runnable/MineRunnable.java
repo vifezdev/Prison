@@ -1,12 +1,14 @@
 package gg.convict.prison.privatemine.grid.runnable;
 
 import com.sk89q.worldedit.Vector;
+import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.privatemine.Mine;
 import gg.convict.prison.privatemine.MineModule;
 import gg.convict.prison.privatemine.grid.MineGrid;
 import gg.convict.prison.privatemine.grid.MineSchematic;
 import gg.convict.prison.privatemine.grid.SchematicType;
 import lombok.RequiredArgsConstructor;
+import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.function.Consumer;
@@ -60,7 +62,9 @@ public class MineRunnable extends BukkitRunnable {
         int z = STARTING_GRID_POINT.getBlockZ() + (GRID_SPACING * copy);
 
         Mine mine = MineSchematic.INSTANCE.paste(type, x, z);
-        mine.resetBlocks();
+
+        Bukkit.getScheduler().runTaskLater(
+                PrisonPlugin.get(), mine::resetBlocks, 20L);
 
         grid.incrementIndex();
 

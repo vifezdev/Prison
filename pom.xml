@@ -52,6 +52,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <version>1.8.21</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- VERASPIGOT -->
         <dependency>
             <groupId>lol.vera.spigot</groupId>
