@@ -86,15 +86,13 @@ public class PrisonTabAdapter implements TabAdapter {
 
     public List<Profile> getSortedProfiles() {
         List<Profile> result = new ArrayList<>();
-        try {
-            for (Player player : Bukkit.getOnlinePlayers())
-                result.add(CoreShared.getInstance()
-                        .getProfileHandler().getProfile(player.getUniqueId()));
+        for (Player player : Bukkit.getOnlinePlayers())
+            result.add(CoreShared.getInstance()
+                    .getProfileHandler().getProfile(player.getUniqueId()));
 
-            result.sort((o1, o2) -> o2.getBestRank().getWeight() - o1.getBestRank().getWeight());
+        result.sort((o1, o2) -> (o2.getBestRank() == null ? 0 : o2.getBestRank().getWeight())
+                - (o1.getBestRank() == null ? 0 : o1.getBestRank().getWeight()));
 
-        } catch (NullPointerException ignored) {
-        }
         return result;
     }
 
