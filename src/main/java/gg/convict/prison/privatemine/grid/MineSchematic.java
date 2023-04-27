@@ -14,6 +14,7 @@ import gg.convict.prison.privatemine.util.AngleUtil;
 import lombok.Data;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.SkullType;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.Skull;
@@ -57,21 +58,51 @@ public class MineSchematic {
         mine.setOwner(null);
         mine.setCuboid(cuboid);
 
+        Location mineCuboidLower = null;
+        Location mineCuboidUpper = null;
+
         for (Block block : cuboid) {
             if (block.getType() != Material.SKULL)
                 continue;
 
             Skull skull = (Skull) block.getState();
-            Location clone = block.getLocation().clone();
+            if (skull.getSkullType() == SkullType.PLAYER) {
+                setSpawnLocation(mine, skull, block);
+                continue;
+            }
 
-            clone.setYaw(AngleUtil.parseFace(skull.getRotation()));
-            clone.add(0.5, 0, 0.5);
+            if (skull.getSkullType() == SkullType.WITHER) {
+                if (mineCuboidLower == null) {
+                    mineCuboidLower = block.getLocation();
+                } else {
+                    if (block.getLocation().getBlockY() > mineCuboidLower.getBlockY()) {
+                        mineCuboidUpper = block.getLocation();
+                        continue;
+                    }
 
-            block.setType(Material.AIR);
-            mine.setSpawnLocation(new LocationConfig(clone));
+                    mineCuboidUpper = mineCuboidLower;
+                    mineCuboidLower = block.getLocation();
+                }
+            }
         }
 
+        if (mineCuboidLower != null && mineCuboidUpper != null)
+            mine.setMineCuboid(new Cuboid(
+                    mineCuboidLower,
+                    mineCuboidUpper
+            ));
+
         return mine;
+    }
+
+    public void setSpawnLocation(Mine mine, Skull skull, Block block) {
+        Location clone = block.getLocation().clone();
+
+        clone.setYaw(AngleUtil.parseFace(skull.getRotation()));
+        clone.add(0.5, 0, 0.5);
+
+        block.setType(Material.AIR);
+        mine.setSpawnLocation(new LocationConfig(clone));
     }
 
     public File getSchematic(SchematicType type) {

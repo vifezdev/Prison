@@ -35,6 +35,8 @@ public class MineRunnable extends BukkitRunnable {
 
     @Override
     public void run() {
+        grid.setCanPaste(false);
+
         try {
             insertMine(type, true);
             count += 1;
@@ -58,11 +60,15 @@ public class MineRunnable extends BukkitRunnable {
         int z = STARTING_GRID_POINT.getBlockZ() + (GRID_SPACING * copy);
 
         Mine mine = MineSchematic.INSTANCE.paste(type, x, z);
+        mine.resetBlocks();
+
         grid.incrementIndex();
 
-        if (addToList)
-            MineModule.get().getHandler()
-                    .getFreeMines().add(mine);
+        if (addToList) {
+            MineModule mineModule = MineModule.get();
+            mineModule.getHandler().getFreeMines().add(mine);
+            mineModule.saveConfig();
+        }
     }
 
 }

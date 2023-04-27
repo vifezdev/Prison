@@ -14,6 +14,9 @@ public class CombatBoardSection extends ScoreboardSection {
     @Override
     public void getLines(Player player, Profile profile, List<String> lines) {
         ProfileStatistics statistics = profile.getStatistics();
+        if (statistics == null)
+            return;
+
         lines.add("&c&7&m-------------------");
         lines.add("&b&l ▎ &3Combat Stats");
         lines.add("&b&l ▎ &fKills: &b" + statistics.getKills());
