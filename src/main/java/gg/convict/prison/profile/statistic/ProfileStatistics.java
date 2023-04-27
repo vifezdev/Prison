@@ -1,19 +1,24 @@
 package gg.convict.prison.profile.statistic;
 
-import gg.convict.prison.profile.Profile;
 import lombok.Data;
 import org.bson.Document;
+
+import java.util.UUID;
 
 @Data
 public class ProfileStatistics {
 
-    private final transient Profile profile;
+    private transient UUID uuid;
 
     private int kills = 0;
     private int deaths = 0;
     private int blocksMined = 0;
 
-    public void update(Document document) {
+    public ProfileStatistics(UUID uuid) {
+        this.uuid = uuid;
+    }
+
+    public ProfileStatistics(Document document) {
         this.kills = document.getInteger("kills");
         this.deaths = document.getInteger("deaths");
         this.blocksMined = document.getInteger("blocksMined");
@@ -22,6 +27,7 @@ public class ProfileStatistics {
     public Document toBson() {
         Document document = new Document();
 
+        document.append("uuid", uuid.toString());
         document.append("kills", kills);
         document.append("deaths", deaths);
         document.append("blocksMined", blocksMined);
