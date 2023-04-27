@@ -3,6 +3,7 @@ package gg.convict.prison.pickaxe;
 import com.google.common.collect.ImmutableList;
 import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.pickaxe.enchant.*;
+import gg.convict.prison.pickaxe.enchant.command.TestEnchantCommand;
 import gg.convict.prison.pickaxe.listener.PickaxeListener;
 import lombok.Getter;
 import org.bukkit.event.Listener;
@@ -44,6 +45,13 @@ public class PickaxeModule extends PluginModule {
     public List<Listener> getListeners() {
         return ImmutableList.of(
                 new PickaxeListener(this)
+        );
+    }
+
+    @Override
+    public List<Object> getCommands() {
+        return ImmutableList.of(
+                new TestEnchantCommand()
         );
     }
 

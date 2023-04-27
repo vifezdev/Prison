@@ -8,8 +8,7 @@ import java.util.UUID;
 @Data
 public class ProfileStatistics {
 
-    private transient UUID uuid;
-
+    private UUID uuid;
     private int kills = 0;
     private int deaths = 0;
     private int blocksMined = 0;
@@ -19,6 +18,7 @@ public class ProfileStatistics {
     }
 
     public ProfileStatistics(Document document) {
+        this.uuid = UUID.fromString(document.getString("uuid"));
         this.kills = document.getInteger("kills");
         this.deaths = document.getInteger("deaths");
         this.blocksMined = document.getInteger("blocksMined");

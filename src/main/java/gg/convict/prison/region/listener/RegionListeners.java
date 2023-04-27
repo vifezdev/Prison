@@ -1,6 +1,10 @@
 package gg.convict.prison.region.listener;
 
+import gg.convict.prison.privatemine.Mine;
+import gg.convict.prison.privatemine.MineModule;
 import gg.convict.prison.region.flag.RegionFlag;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -12,8 +16,17 @@ public class RegionListeners implements Listener {
 
     @EventHandler
     public void onBreak(BlockBreakEvent event) {
-        if (!RegionFlag.CAN_BREAK.isApplicableAt(event.getBlock().getLocation())
-                && !event.getPlayer().hasMetadata("Build"))
+        Player player = event.getPlayer();
+        Location blockLocation = event.getBlock().getLocation();
+        Mine mine = MineModule.get().getHandler().getMine(blockLocation);
+
+        if (mine != null) {
+            event.setCancelled(!mine.canMine(player, blockLocation));
+            return;
+        }
+
+        if (!RegionFlag.CAN_BREAK.isApplicableAt(blockLocation)
+                && !player.hasMetadata("Build"))
             event.setCancelled(true);
     }
 
