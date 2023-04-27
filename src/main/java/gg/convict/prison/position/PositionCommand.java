@@ -1,17 +1,16 @@
 package gg.convict.prison.position;
 
-import lite.LiteEdit;
-import lite.LiteRegion;
-import net.minecraft.server.v1_8_R3.IBlockData;
+import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.position.workload.impl.BlockPlaceWorkload;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.command.annotation.Command;
 import org.hydrapvp.libraries.command.annotation.Param;
 import org.hydrapvp.libraries.cuboid.Cuboid;
 import org.hydrapvp.libraries.utils.CC;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -63,35 +62,11 @@ public class PositionCommand {
                 positionData.getSecondLocation()
         );
 
-        LiteEdit.fill(new LiteRegion(cuboid), new LiteEdit.FillHandler() {
-
-            @NotNull
-            @Override
-            public IBlockData getData(@NotNull Material material, int data) {
-                return LiteEdit.FillHandler.super.getData(material, data);
-            }
-
-            @Override
-            public IBlockData getBlock(int x, int y, int z) {
-                return getData(Material.STONE, 0);
-            }
-
-        }, new LiteEdit.ProgressCallback() {
-            @Override
-            public void start(int totalChunks) {
-                player.sendMessage("Starting lite edit with " + totalChunks + " chunks.");
-            }
-
-            @Override
-            public void progress(int chunks, int totalChunks) {
-                player.sendMessage("Progress: " + chunks + "/" + totalChunks);
-            }
-
-            @Override
-            public void end(int totalChunks) {
-                player.sendMessage("Lite edit ended with " + totalChunks);
-            }
-        });
+        PrisonPlugin plugin = PrisonPlugin.get();
+        for (Block block : cuboid) {
+            plugin.getWorkloadRunnable().register(new BlockPlaceWorkload(
+                    cuboid.getWorld().getUID(), block.getX(), block.getY(), block.getZ(), Material.STONE));
+        }
     }
 
     public void update(Player player, Location location, boolean first) {

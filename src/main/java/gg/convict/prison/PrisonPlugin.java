@@ -7,6 +7,7 @@ import gg.convict.prison.crate.CrateModule;
 import gg.convict.prison.mongo.MongoModule;
 import gg.convict.prison.pickaxe.PickaxeModule;
 import gg.convict.prison.position.PositionCommand;
+import gg.convict.prison.position.workload.WorkloadRunnable;
 import gg.convict.prison.privatemine.MineModule;
 import gg.convict.prison.profile.ProfileModule;
 import gg.convict.prison.region.RegionModule;
@@ -15,6 +16,7 @@ import gg.convict.prison.tab.PrisonTabAdapter;
 import lol.vera.veraspigot.util.CC;
 import lombok.Getter;
 import lombok.SneakyThrows;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.hydrapvp.libraries.command.CommandService;
 import org.hydrapvp.libraries.configuration.*;
@@ -37,6 +39,7 @@ public class PrisonPlugin extends JavaPlugin {
 
     private PrisonConfig prisonConfig;
     private MongoService mongoService;
+    private WorkloadRunnable workloadRunnable;
     private ConfigurationService configService;
 
     @Override
@@ -63,6 +66,9 @@ public class PrisonPlugin extends JavaPlugin {
         );
 
         new TabService(this, new PrisonTabAdapter());
+
+        Bukkit.getScheduler().runTaskTimer(this,
+                this.workloadRunnable = new WorkloadRunnable(), 1L, 1L);
     }
 
     @SneakyThrows

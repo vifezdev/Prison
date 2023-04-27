@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.io.File;
 import java.util.function.Consumer;
 
 @RequiredArgsConstructor
@@ -23,16 +24,16 @@ public class MineRunnable extends BukkitRunnable {
 
     private final int amount;
     private final MineGrid grid;
-    private final SchematicType type;
+    private final File schematicFile;
     private final Consumer<Integer> consumer;
 
     private int count = 0;
 
     public MineRunnable(SchematicType type, int amount, Consumer<Integer> consumer) {
-        this.type = type;
         this.amount = amount;
         this.consumer = consumer;
         this.grid = MineModule.get().getHandler().getMineGrid();
+        this.schematicFile = getSchematic(type);
     }
 
     @Override
@@ -40,7 +41,7 @@ public class MineRunnable extends BukkitRunnable {
         grid.setCanPaste(false);
 
         try {
-            insertMine(type, true);
+            insertMine(true);
             count += 1;
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -54,15 +55,14 @@ public class MineRunnable extends BukkitRunnable {
         }
     }
 
-    public void insertMine(SchematicType type, boolean addToList) throws Exception {
+    public void insertMine(boolean addToList) throws Exception {
         int index = grid.getIndex();
         int copy = index + 1;
 
         int x = STARTING_GRID_POINT.getBlockX() + (GRID_SPACING + index);
         int z = STARTING_GRID_POINT.getBlockZ() + (GRID_SPACING * copy);
 
-        Mine mine = MineSchematic.INSTANCE.paste(type, x, z);
-
+        Mine mine = MineSchematic.INSTANCE.paste(schematicFile, x, z);
         Bukkit.getScheduler().runTaskLater(
                 PrisonPlugin.get(), mine::resetBlocks, 20L);
 
@@ -73,6 +73,10 @@ public class MineRunnable extends BukkitRunnable {
             mineModule.getHandler().getFreeMines().add(mine);
             mineModule.saveConfig();
         }
+    }
+
+    public File getSchematic(SchematicType type) {
+        return new File(MineSchematic.SCHEMATIC_DIR, type.getFileName());
     }
 
 }

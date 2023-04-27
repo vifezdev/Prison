@@ -23,6 +23,22 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- WORLDEDIT -->
+        <dependency>
+            <groupId>com.fastasyncworldedit</groupId>
+            <artifactId>FastAsyncWorldEdit-Bukkit</artifactId>
+            <version>2.6.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/FAWE.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.sk89q</groupId>
+            <artifactId>worldedit</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+
         <!--- CONVICT PLUGINS -->
         <dependency>
             <groupId>gg.convict.core</groupId>
@@ -37,28 +53,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- WORLDEDIT -->
-        <dependency>
-            <groupId>com.sk89q.worldedit</groupId>
-            <artifactId>fawe</artifactId>
-            <version>6.1.4-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/FAWE.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.sk89q</groupId>
-            <artifactId>worldedit</artifactId>
-            <version>6.0.0-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-maven-plugin</artifactId>
-            <version>1.8.21</version>
-            <scope>provided</scope>
-        </dependency>
-
         <!-- VERASPIGOT -->
         <dependency>
             <groupId>lol.vera.spigot</groupId>
@@ -67,6 +61,13 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>papermc</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
@@ -85,5 +86,17 @@
             </plugin>
         </plugins>
     </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.intellectualsites.bom</groupId>
+                <artifactId>bom-1.18.x</artifactId>
+                <version>1.27</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

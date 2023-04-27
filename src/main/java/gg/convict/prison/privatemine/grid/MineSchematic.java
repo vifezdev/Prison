@@ -1,23 +1,20 @@
 package gg.convict.prison.privatemine.grid;
 
 import com.boydti.fawe.Fawe;
-import com.sk89q.worldedit.CuboidClipboard;
-import com.sk89q.worldedit.EditSession;
-import com.sk89q.worldedit.Vector;
-import com.sk89q.worldedit.bukkit.BukkitWorld;
-import com.sk89q.worldedit.bukkit.WorldEditPlugin;
+import com.boydti.fawe.FaweAPI;
+import com.sk89q.worldedit.*;
+import com.sk89q.worldedit.bukkit.*;
+import com.sk89q.worldedit.function.operation.*;
 import com.sk89q.worldedit.schematic.SchematicFormat;
-import gg.convict.prison.privatemine.Mine;
-import gg.convict.prison.privatemine.MineModule;
+import com.sk89q.worldedit.session.ClipboardHolder;
+import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.privatemine.*;
 import gg.convict.prison.privatemine.grid.runnable.MineRunnable;
 import gg.convict.prison.privatemine.util.AngleUtil;
 import lombok.Data;
+import org.bukkit.*;
 import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.SkullType;
-import org.bukkit.World;
-import org.bukkit.block.Block;
-import org.bukkit.block.Skull;
+import org.bukkit.block.*;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
 import org.hydrapvp.libraries.cuboid.Cuboid;
@@ -43,12 +40,13 @@ public class MineSchematic {
                 .getEditSession(new BukkitWorld(world), Integer.MAX_VALUE);
     }
 
-    public Mine paste(SchematicType type, int startX, int startZ) throws Exception {
-        CuboidClipboard clipboard = SchematicFormat.MCEDIT.load(getSchematic(type));
+    public Mine paste(File schematicFile, int startX, int startZ) throws Exception {
+        CuboidClipboard clipboard = SchematicFormat.MCEDIT.load(schematicFile);
         Vector pasteVector = new Vector(startX, MineRunnable.STARTING_GRID_POINT.getY(), startZ);
 
         clipboard.setOffset(new Vector(0, 0, 0));
         clipboard.paste(editSession, pasteVector, true);
+
         Cuboid cuboid = new Cuboid(
                 fromVector(pasteVector, world),
                 fromVector(pasteVector.add(clipboard.getSize()), world)
@@ -103,10 +101,6 @@ public class MineSchematic {
 
         block.setType(Material.AIR);
         mine.setSpawnLocation(new LocationConfig(clone));
-    }
-
-    public File getSchematic(SchematicType type) {
-        return new File(SCHEMATIC_DIR, type.getFileName());
     }
 
     public static Location fromVector(Vector vector, World world) {
