@@ -6,6 +6,7 @@ import gg.convict.prison.config.PrisonConfig;
 import gg.convict.prison.crate.CrateModule;
 import gg.convict.prison.mongo.MongoModule;
 import gg.convict.prison.pickaxe.PickaxeModule;
+import gg.convict.prison.privatemine.MineModule;
 import gg.convict.prison.profile.ProfileModule;
 import gg.convict.prison.region.RegionModule;
 import gg.convict.prison.scoreboard.ScoreboardModule;
@@ -49,6 +50,7 @@ public class PrisonPlugin extends JavaPlugin {
                 new SpawnCommands(this));
 
         PluginBootstrap.registerModules(
+                new MineModule(),
                 new MongoModule(),
                 new CrateModule(),
                 new RegionModule(),
