@@ -25,11 +25,13 @@ public class MineRunnable extends BukkitRunnable {
     private final int amount;
     private final MineGrid grid;
     private final File schematicFile;
+    private final SchematicType type;
     private final Consumer<Integer> consumer;
 
     private int count = 0;
 
     public MineRunnable(SchematicType type, int amount, Consumer<Integer> consumer) {
+        this.type = type;
         this.amount = amount;
         this.consumer = consumer;
         this.grid = MineModule.get().getHandler().getMineGrid();
@@ -62,7 +64,7 @@ public class MineRunnable extends BukkitRunnable {
         int x = STARTING_GRID_POINT.getBlockX() + (GRID_SPACING + index);
         int z = STARTING_GRID_POINT.getBlockZ() + (GRID_SPACING * copy);
 
-        Mine mine = MineSchematic.INSTANCE.paste(schematicFile, x, z);
+        Mine mine = MineSchematic.INSTANCE.paste(type, schematicFile, x, z);
         Bukkit.getScheduler().runTaskLater(
                 PrisonPlugin.get(), mine::resetBlocks, 20L);
 

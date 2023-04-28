@@ -2,6 +2,7 @@ package gg.convict.prison.privatemine;
 
 import gg.convict.prison.privatemine.generator.VoidMineGenerator;
 import gg.convict.prison.privatemine.grid.MineGrid;
+import gg.convict.prison.privatemine.grid.SchematicType;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -50,6 +51,17 @@ public class MineHandler implements StaticConfiguration {
 
     public boolean hasMine(Player player) {
         return getMine(player) != null;
+    }
+
+    public int getMineCount(SchematicType type) {
+        int count = 0;
+
+        for (Mine freeMine : freeMines) {
+            if (freeMine.getType() == type)
+                count += 1;
+        }
+
+        return count;
     }
 
     public Mine getMine(Location location) {

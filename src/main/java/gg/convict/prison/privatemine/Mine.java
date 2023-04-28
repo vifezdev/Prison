@@ -3,6 +3,7 @@ package gg.convict.prison.privatemine;
 import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.position.workload.WorkloadRunnable;
 import gg.convict.prison.position.workload.impl.BlockPlaceWorkload;
+import gg.convict.prison.privatemine.grid.SchematicType;
 import lombok.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -12,9 +13,7 @@ import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
 import org.hydrapvp.libraries.cuboid.Cuboid;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Data
 public class Mine {
@@ -22,7 +21,10 @@ public class Mine {
     private UUID owner;
     private Cuboid cuboid;
     private Cuboid mineCuboid;
+    private SchematicType type;
     private LocationConfig spawnLocation;
+
+    private final Map<UUID, Boolean> memberAccess = new HashMap<>();
 
     public void resetBlocks() {
         WorkloadRunnable runnable = PrisonPlugin.get().getWorkloadRunnable();
@@ -58,7 +60,9 @@ public class Mine {
         if (!mineCuboid.contains(location))
             return false;
 
-        return owner.equals(player.getUniqueId());
+        UUID uuid = player.getUniqueId();
+        return owner.equals(uuid)
+                || (memberAccess.containsKey(uuid) && memberAccess.get(uuid));
     }
 
     public List<Player> getPlayersInMine() {

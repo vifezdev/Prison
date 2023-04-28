@@ -2,6 +2,7 @@ package gg.convict.prison.privatemine.grid.menu.button;
 
 import com.google.common.collect.ImmutableList;
 import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.privatemine.MineModule;
 import gg.convict.prison.privatemine.grid.MineGrid;
 import gg.convict.prison.privatemine.grid.SchematicType;
 import gg.convict.prison.privatemine.grid.prompt.GridAmountPrompt;
@@ -33,6 +34,8 @@ public class GridAddTypeButton extends Button {
 
     public List<String> getLore() {
         return ImmutableList.of(
+                "",
+                CC.format("&fFree Mines: &b%s", MineModule.get().getHandler().getMineCount(type)),
                 "",
                 CC.translate("&a&lLEFT-CLICK &ato create 1 mine"),
                 CC.translate("&e&lMIDDLE-CLICK &eto create x mines"),

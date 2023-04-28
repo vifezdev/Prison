@@ -40,7 +40,7 @@ public class MineSchematic {
                 .getEditSession(new BukkitWorld(world), Integer.MAX_VALUE);
     }
 
-    public Mine paste(File schematicFile, int startX, int startZ) throws Exception {
+    public Mine paste(SchematicType type, File schematicFile, int startX, int startZ) throws Exception {
         CuboidClipboard clipboard = SchematicFormat.MCEDIT.load(schematicFile);
         Vector pasteVector = new Vector(startX, MineRunnable.STARTING_GRID_POINT.getY(), startZ);
 
@@ -53,6 +53,7 @@ public class MineSchematic {
         );
 
         Mine mine = new Mine();
+        mine.setType(type);
         mine.setOwner(null);
         mine.setCuboid(cuboid);
 
