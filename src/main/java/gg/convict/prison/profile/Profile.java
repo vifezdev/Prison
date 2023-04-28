@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.utils.CC;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Getter
@@ -16,8 +17,8 @@ public class Profile {
 
     private final UUID uuid;
     private long rank = 1L;
-    private int tokens = 0;
-    private int balance = 0;
+    private BigDecimal tokens = new BigDecimal(0);
+    private BigDecimal balance = new BigDecimal(0);
 
     private ProfileStatistics statistics;
 
@@ -29,8 +30,8 @@ public class Profile {
     public Profile(Document document) {
         this.uuid = UUID.fromString(document.getString("uuid"));
         this.rank = document.getLong("rank");
-        this.tokens = document.getInteger("tokens");
-        this.balance = document.getInteger("balance");
+        this.tokens = BigDecimal.valueOf(document.getLong("tokens"));
+        this.balance = BigDecimal.valueOf(document.getLong("balance"));
 
         ProfileStatistics statistics = new ProfileStatistics(uuid);
         if (document.containsKey("statistics"))
@@ -44,8 +45,8 @@ public class Profile {
 
         document.put("uuid", uuid.toString());
         document.put("rank", rank);
-        document.put("tokens", tokens);
-        document.put("balance", balance);
+        document.put("tokens", tokens.longValue());
+        document.put("balance", balance.longValue());
         document.put("statistics", statistics.toBson());
 
         return document;
@@ -65,19 +66,19 @@ public class Profile {
     }
 
     public void addTokens(int tokens) {
-        this.tokens += tokens;
+        this.tokens = this.tokens.add(new BigDecimal(tokens));
     }
 
     public void removeTokens(int tokens) {
-        this.tokens -= tokens;
+        this.tokens = this.tokens.subtract(new BigDecimal(tokens));
     }
 
     public void addBalance(int balance) {
-        this.balance += balance;
+        this.balance = this.balance.add(new BigDecimal(balance));
     }
 
     public void removeBalance(int balance) {
-        this.balance -= balance;
+        this.balance = this.balance.subtract(new BigDecimal(balance));
     }
 
 }

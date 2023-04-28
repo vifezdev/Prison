@@ -69,8 +69,11 @@ public class PickaxeData {
         player.updateInventory();
     }
 
-    public void applyEnchant(Enchant enchant, int level) {
+    public void applyEnchant(Player player, ItemStack itemStack, Enchant enchant, int level) {
         enchants.put(enchant.getId().toLowerCase(), level);
+
+        applyItemMeta(player, itemStack);
+        enchant.apply(player, itemStack, level);
     }
 
     public Map<Enchant, Integer> getEnchantments() {

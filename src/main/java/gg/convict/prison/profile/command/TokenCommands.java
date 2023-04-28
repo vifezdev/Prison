@@ -9,6 +9,8 @@ import org.hydrapvp.libraries.command.annotation.Command;
 import org.hydrapvp.libraries.command.annotation.Param;
 import org.hydrapvp.libraries.utils.CC;
 
+import java.math.BigDecimal;
+
 public class TokenCommands {
 
     @Command(names = {"tokens", "token"},
@@ -37,13 +39,13 @@ public class TokenCommands {
         }
 
         Profile profile = ProfileModule.get().getProfileHandler().getProfile(player);
-        if (profile.getTokens() < amount) {
+        if (profile.getTokens().longValue() < amount) {
             player.sendMessage(CC.RED + "You do not have enough tokens to pay ⛃" + amount + ".");
             return;
         }
 
-        profile.setTokens(profile.getTokens() - amount);
-        target.setTokens(target.getTokens() + amount);
+        profile.removeTokens(amount);
+        target.addTokens(amount);
 
         player.sendMessage(CC.format(
                 "&fYou have paid &b%s &3⛃&b%s&f.",
@@ -67,7 +69,7 @@ public class TokenCommands {
             return;
         }
 
-        target.setTokens(amount);
+        target.setTokens(new BigDecimal(amount));
         sender.sendMessage(CC.format(
                 "&fSet the tokens of &b%s&f to &3⛃&b%s&f.",
                 SenderUtil.getName(target.getUuid()),

@@ -9,6 +9,8 @@ import org.hydrapvp.libraries.command.annotation.Command;
 import org.hydrapvp.libraries.command.annotation.Param;
 import org.hydrapvp.libraries.utils.CC;
 
+import java.math.BigDecimal;
+
 public class BalanceCommands {
 
     @Command(names = {"balance", "eco", "bal"},
@@ -37,13 +39,13 @@ public class BalanceCommands {
         }
 
         Profile profile = ProfileModule.get().getProfileHandler().getProfile(player);
-        if (profile.getBalance() < amount) {
+        if (profile.getBalance().longValue() < amount) {
             player.sendMessage(CC.RED + "You do not have enough money to pay $" + amount + ".");
             return;
         }
 
-        profile.setBalance(profile.getBalance() - amount);
-        target.setBalance(target.getBalance() + amount);
+        profile.removeBalance(amount);
+        target.addBalance(amount);
 
         player.sendMessage(CC.format(
                 "&fYou have paid &b%s &2$&a%s&f.",
@@ -67,7 +69,7 @@ public class BalanceCommands {
             return;
         }
 
-        target.setBalance(amount);
+        target.setBalance(new BigDecimal(amount));
         sender.sendMessage(CC.format(
                 "&fSet the balance of &b%s&f to &2$&a%s&f.",
                 SenderUtil.getName(target.getUuid()),

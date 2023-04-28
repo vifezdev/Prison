@@ -31,8 +31,7 @@ public class TestEnchantCommand {
             return;
         }
 
-        data.applyEnchant(enchant, 25);
-        data.applyItemMeta(player, itemInHand);
+        data.applyEnchant(player, itemInHand, enchant, 25);
     }
 
 }

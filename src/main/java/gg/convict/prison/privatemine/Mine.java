@@ -4,6 +4,7 @@ import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.position.workload.WorkloadRunnable;
 import gg.convict.prison.position.workload.impl.BlockPlaceWorkload;
 import lombok.Data;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -11,6 +12,8 @@ import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
 import org.hydrapvp.libraries.cuboid.Cuboid;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -56,6 +59,17 @@ public class Mine {
             return false;
 
         return owner.equals(player.getUniqueId());
+    }
+
+    public List<Player> getPlayersInMine() {
+        List<Player> result = new ArrayList<>();
+
+        for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+            if (mineCuboid.contains(onlinePlayer))
+                result.add(onlinePlayer);
+        }
+
+        return result;
     }
 
 }
