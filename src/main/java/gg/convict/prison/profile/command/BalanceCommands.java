@@ -3,6 +3,7 @@ package gg.convict.prison.profile.command;
 import gg.convict.core.util.SenderUtil;
 import gg.convict.prison.profile.Profile;
 import gg.convict.prison.profile.ProfileModule;
+import gg.convict.prison.profile.util.MoneyUtil;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.command.annotation.Command;
@@ -20,7 +21,7 @@ public class BalanceCommands {
         sender.sendMessage(CC.format(
                 "&fBalance of &b%s&f: &2$&a%s&f.",
                 SenderUtil.getName(target.getUuid()),
-                target.getBalance()));
+                MoneyUtil.format(target.getBalance(), 0)));
     }
 
     @Command(names = "pay",

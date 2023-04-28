@@ -3,13 +3,18 @@ package gg.convict.prison.banknote.listener;
 import gg.convict.core.util.SenderUtil;
 import gg.convict.prison.banknote.BankNote;
 import gg.convict.prison.banknote.BankNoteModule;
+import gg.convict.prison.profile.util.MoneyUtil;
 import lombok.RequiredArgsConstructor;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.hydrapvp.libraries.utils.CC;
+import org.hydrapvp.libraries.utils.ChatMessage;
+
+import java.math.BigDecimal;
 
 @RequiredArgsConstructor
 public class BankNoteListener implements Listener {
@@ -40,12 +45,25 @@ public class BankNoteListener implements Listener {
             return;
         }
 
-        if (bankNote.getAmount() >= module.getHandler().getAnnounceThreshold())
-            CC.send(
-                    "&3[Bank Notes] &b%s&f has redeemed a bank note worth &b%s&f.",
-                    "core.admin",
+        if (bankNote.getAmount() >= module.getHandler().getAnnounceThreshold()) {
+            ChatMessage message = new ChatMessage(CC.format(
+                    "&3[Bank Notes] &b%s&f redeemed a bank note worth &b%s%s&f.",
                     SenderUtil.getName(player),
-                    bankNote.getValue());
+                    bankNote.getCurrency().getColoredIcon(),
+                    MoneyUtil.format(BigDecimal.valueOf(bankNote.getAmount()), 0)
+            ));
+
+            String uuid = bankNote.getUuid().toString();
+            message.hoverText(CC.format("&fUUID: &b%s\n\n&7Click to view bank note.", uuid))
+                    .runCommand("/banknote view " + uuid);
+
+            for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+                if (!onlinePlayer.hasPermission("core.admin"))
+                    continue;
+
+                message.send(onlinePlayer);
+            }
+        }
 
         bankNote.redeemFor(player);
 
