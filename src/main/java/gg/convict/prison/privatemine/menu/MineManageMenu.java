@@ -1,8 +1,7 @@
 package gg.convict.prison.privatemine.menu;
 
 import gg.convict.prison.privatemine.Mine;
-import gg.convict.prison.privatemine.menu.button.MineManagePermissionsButton;
-import gg.convict.prison.privatemine.menu.button.MineTeleportButton;
+import gg.convict.prison.privatemine.menu.button.*;
 import gg.convict.prison.privatemine.menu.filler.PrisonMenuFiller;
 import gg.convict.prison.privatemine.util.IntMineList;
 import gg.convict.prison.privatemine.util.MineList;
@@ -48,6 +47,10 @@ public class MineManageMenu extends Menu {
 
         buttonMap.put(21, new MineTeleportButton(mine));
         buttonMap.put(23, new MineManagePermissionsButton(mine));
+
+        buttonMap.put(29, new MineResetButton(mine));
+        buttonMap.put(31, new MineBlocksButton(mine));
+        buttonMap.put(33, new MineStatusButton(mine));
 
         return buttonMap;
     }

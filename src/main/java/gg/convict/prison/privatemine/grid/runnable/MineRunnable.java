@@ -65,8 +65,8 @@ public class MineRunnable extends BukkitRunnable {
         int z = STARTING_GRID_POINT.getBlockZ() + (GRID_SPACING * copy);
 
         Mine mine = MineSchematic.INSTANCE.paste(type, schematicFile, x, z);
-        Bukkit.getScheduler().runTaskLater(
-                PrisonPlugin.get(), mine::resetBlocks, 20L);
+        Bukkit.getScheduler().runTaskLater(PrisonPlugin.get(),
+                () -> mine.resetBlocks(false), 20L);
 
         grid.incrementIndex();
 

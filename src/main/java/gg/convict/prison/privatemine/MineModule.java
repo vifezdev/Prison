@@ -24,8 +24,8 @@ public class MineModule extends PluginModule {
         MineHandler handler = getHandler();
 
         Bukkit.getScheduler().runTaskLater(getPlugin(), () -> {
-            handler.getUsedMines().forEach(Mine::resetBlocks);
-            handler.getFreeMines().forEach(Mine::resetBlocks);
+            handler.getUsedMines().forEach(mine -> mine.resetBlocks(false));
+            handler.getFreeMines().forEach(mine -> mine.resetBlocks(false));
         }, 10L);
     }
 

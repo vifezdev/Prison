@@ -27,31 +27,23 @@ public class MineListener implements Listener {
         MineHandler handler = module.getHandler();
         Mine mine = handler.getMine(event.getBlock().getLocation());
 
-        if (mine == null || !mine.canMine(player, event.getBlock().getLocation()))
+        if (mine == null
+                || !mine.canMine(player, event.getBlock().getLocation())
+                || player.getItemInHand() == null
+                || player.getItemInHand().getType() != Material.DIAMOND_PICKAXE)
             return;
 
         Profile profile = ProfileModule.get()
                 .getProfileHandler().getProfile(player);
 
-        for (ItemStack drop : event.getBlock().getDrops())
-            profile.addBalance(100000); // todo this is testing
-
+        profile.addBalance(100000);
         event.getBlock().setType(Material.AIR);
 
         double airPercentage = mine.getAirPercentage();
         if (airPercentage < handler.getMineResetThreshold())
             return;
 
-        mine.resetBlocks();
-        mine.getPlayersInMine().forEach(inMine -> {
-            inMine.teleport(mine.getCenterLocation());
-
-            inMine.sendTitle(new Title(
-                    CC.translate("&b&lMINE RESET"),
-                    CC.translate("&fThe mine you were in has been reset"),
-                    20, 80, 20
-            ));
-        });
+        mine.resetBlocks(true);
     }
 
 }

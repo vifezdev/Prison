@@ -17,9 +17,14 @@ public class MineManagePermissionsButton extends Button {
     @Override
     public ItemStack getItem(Player player) {
         return new ItemBuilder(Material.SKULL_ITEM)
-                .setDisplayName(CC.AQUA + "Edit Permissions")
+                .setDisplayName(CC.PINK + CC.BOLD + "Edit Permissions")
                 .setData(3)
-                .build();
+                .setSkullOwner(player.getName())
+                .addToLore(
+                        "",
+                        CC.translate("&fClick to edit the &dpermissions"),
+                        CC.translate("&fof players in your &dmine&f.")
+                ).build();
     }
 
 }

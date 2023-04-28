@@ -2,12 +2,14 @@ package gg.convict.prison.privatemine;
 
 import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.privatemine.grid.SchematicType;
+import lol.vera.veraspigot.util.CC;
 import lombok.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.github.paperspigot.Title;
 import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
 import org.hydrapvp.libraries.cuboid.Cuboid;
 import org.hydrapvp.libraries.workload.WorkloadRunnable;
@@ -19,23 +21,38 @@ import java.util.*;
 public class Mine {
 
     private UUID owner;
+
     private Cuboid cuboid;
     private Cuboid mineCuboid;
+
     private SchematicType type;
     private LocationConfig spawnLocation;
+    private Material blockMaterial = Material.STONE;
 
+    private boolean open = false;
     private final Map<UUID, Boolean> memberAccess = new HashMap<>();
 
-    public void resetBlocks() {
+    public void resetBlocks(boolean teleportPlayers) {
         WorkloadRunnable runnable = PrisonPlugin.get().getWorkloadRunnable();
 
         for (Block block : mineCuboid) {
             runnable.register(new BlockPlaceWorkload(
                     block.getWorld().getUID(),
                     block.getX(), block.getY(), block.getZ(),
-                    Material.STONE
+                    blockMaterial
             ));
         }
+
+        if (teleportPlayers)
+            getPlayersInMine().forEach(inMine -> {
+                inMine.teleport(getCenterLocation());
+
+                inMine.sendTitle(new Title(
+                        CC.translate("&b&lMINE RESET"),
+                        CC.translate("&fThe mine you were in has been reset"),
+                        20, 80, 20
+                ));
+            });
     }
 
     public Location getCenterLocation() {
@@ -61,7 +78,7 @@ public class Mine {
             return false;
 
         UUID uuid = player.getUniqueId();
-        return (owner != null && owner.equals(uuid))
+        return open || (owner != null && owner.equals(uuid))
                 || (memberAccess.containsKey(uuid) && memberAccess.get(uuid));
     }
 

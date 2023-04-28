@@ -12,29 +12,31 @@ import org.hydrapvp.libraries.menu.Button;
 import org.hydrapvp.libraries.utils.CC;
 
 @RequiredArgsConstructor
-public class MineTeleportButton extends Button {
+public class MineStatusButton extends Button {
 
     private final Mine mine;
 
     @Override
     public ItemStack getItem(Player player) {
-        return new ItemBuilder(Material.WOOD_DOOR)
-                .setDisplayName(CC.AQUA + CC.BOLD + "Teleport to mine")
+        return new ItemBuilder(Material.INK_SACK)
+                .setDisplayName(CC.GREEN + CC.BOLD + "Mine Status")
+                .setData(12)
                 .addToLore(
+                        CC.format("&fCurrent Status: %s", mine.isOpen() ? "&aOpen" : "&cClosed"),
                         "",
-                        CC.translate("&fClick to teleport to"),
-                        CC.translate("&fyour &bprivate mine&7.")
+                        CC.translate("&7Click to toggle the"),
+                        CC.translate("&astatus &7of &ayour mine&7.")
                 ).build();
     }
 
     @Override
     public void click(Player player, int slot, ClickType clickType, int hotbarButton) {
+        mine.setOpen(!mine.isOpen());
         player.closeInventory();
-        player.teleport(mine.getSpawnLocation().getLocation());
 
         player.sendTitle(new Title(
-                CC.translate("&d&lTELEPORTED"),
-                CC.translate("&fYou have been teleported to your mine"),
+                CC.translate("&9&lMINE STATUS"),
+                CC.format("&fYour mine is now %s", mine.isOpen() ? "&aopen" : "&cclosed"),
                 20, 20, 20
         ));
     }
