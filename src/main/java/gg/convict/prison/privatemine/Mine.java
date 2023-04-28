@@ -61,7 +61,7 @@ public class Mine {
             return false;
 
         UUID uuid = player.getUniqueId();
-        return owner.equals(uuid)
+        return (owner != null && owner.equals(uuid))
                 || (memberAccess.containsKey(uuid) && memberAccess.get(uuid));
     }
 

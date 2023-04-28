@@ -17,8 +17,9 @@ public class MineList<T> {
     }
 
     @SafeVarargs
-    public final void addAll(T... t) {
+    public final MineList<T> addAll(T... t) {
         this.list.addAll(Arrays.asList(t));
+        return this;
     }
 
     public T getRandom() {

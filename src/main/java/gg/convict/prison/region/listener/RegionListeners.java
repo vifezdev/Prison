@@ -20,7 +20,10 @@ public class RegionListeners implements Listener {
         Location blockLocation = event.getBlock().getLocation();
         Mine mine = MineModule.get().getHandler().getMine(blockLocation);
 
-        if (mine != null && !player.hasMetadata("Build")) {
+        if (mine != null) {
+            if (player.hasMetadata("Build"))
+                return;
+
             event.setCancelled(!mine.canMine(player, blockLocation));
             return;
         }

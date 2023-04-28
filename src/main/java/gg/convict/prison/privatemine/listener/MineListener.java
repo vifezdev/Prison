@@ -8,6 +8,7 @@ import gg.convict.prison.profile.ProfileModule;
 import lol.vera.veraspigot.util.CC;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -22,14 +23,15 @@ public class MineListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGH)
     public void onBlockBreak(BlockBreakEvent event) {
+        Player player = event.getPlayer();
         MineHandler handler = module.getHandler();
         Mine mine = handler.getMine(event.getBlock().getLocation());
 
-        if (mine == null)
+        if (mine == null || !mine.canMine(player, event.getBlock().getLocation()))
             return;
 
         Profile profile = ProfileModule.get()
-                .getProfileHandler().getProfile(event.getPlayer());
+                .getProfileHandler().getProfile(player);
 
         for (ItemStack drop : event.getBlock().getDrops())
             profile.addBalance(100000); // todo this is testing
