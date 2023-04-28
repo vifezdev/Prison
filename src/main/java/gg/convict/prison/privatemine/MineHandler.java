@@ -32,21 +32,29 @@ public class MineHandler implements StaticConfiguration {
         );
     }
     
-    public Mine allocateMine(Player player) {
-        if (freeMines.size() == 0) {
-            // todo create mine
+    public Mine allocateMine(Player player, SchematicType type) {
+        Mine freeMine = getFreeMine(type);
+        if (freeMine == null) {
             player.sendMessage(CC.RED + "No mines found, creating one for you.");
             return null;
         }
 
-        Mine mine = freeMines.get(0);
-        mine.setOwner(player.getUniqueId());
+        freeMine.setOwner(player.getUniqueId());
 
-        usedMines.add(mine);
-        freeMines.remove(mine);
+        usedMines.add(freeMine);
+        freeMines.remove(freeMine);
 
         MineModule.get().saveConfig();
-        return mine;
+        return freeMine;
+    }
+
+    public Mine getFreeMine(SchematicType type) {
+        for (Mine freeMine : freeMines) {
+            if (freeMine.getType() == type)
+                return freeMine;
+        }
+
+        return null;
     }
 
     public boolean hasMine(Player player) {

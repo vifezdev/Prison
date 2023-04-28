@@ -14,7 +14,8 @@ import java.math.BigDecimal;
 public class TokenCommands {
 
     @Command(names = {"tokens", "token"},
-            description = "View a player's token balance")
+            description = "View a player's token balance",
+            async = true)
     public void execute(CommandSender sender, @Param(name = "target", defaultValue = "@self") Profile target) {
         sender.sendMessage(CC.format(
                 "&fToken Balance of &b%s&f: &3⛃&b%s&f.",
@@ -24,7 +25,8 @@ public class TokenCommands {
 
     @Command(names = {"token pay", "tokens pay"},
             description = "Pay a player tokens",
-            playerOnly = true)
+            playerOnly = true,
+            async = true)
     public void pay(Player player,
                     @Param(name = "target") Profile target,
                     @Param(name = "amount") int amount) {
@@ -60,7 +62,8 @@ public class TokenCommands {
     @Command(names = {"token set", "tokens set"},
             permission = "prison.tokens.set",
             description = "Set the token balance of a player",
-            hidden = true)
+            hidden = true,
+            async = true)
     public void set(CommandSender sender,
                     @Param(name = "target") Profile target,
                     @Param(name = "amount") int amount) {

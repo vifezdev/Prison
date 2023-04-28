@@ -20,7 +20,7 @@ public class MineJoinListener implements Listener {
         Mine mine = module.getHandler().getMine(player.getLocation());
 
         if (mine != null)
-            player.teleport(mine.getSpawnLocation().getLocation());
+            mine.teleport(player);
     }
 
 }

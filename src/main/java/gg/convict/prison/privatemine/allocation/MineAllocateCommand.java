@@ -3,6 +3,7 @@ package gg.convict.prison.privatemine.allocation;
 import gg.convict.prison.privatemine.Mine;
 import gg.convict.prison.privatemine.MineHandler;
 import gg.convict.prison.privatemine.MineModule;
+import gg.convict.prison.privatemine.grid.SchematicType;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 import org.github.paperspigot.Title;
@@ -26,10 +27,9 @@ public class MineAllocateCommand {
             return;
         }
 
-        Mine mine = handler.allocateMine(player);
-        LocationConfig spawnLocation = mine.getSpawnLocation();
+        handler.allocateMine(player,
+                SchematicType.NATURE).teleport(player);
 
-        player.teleport(spawnLocation.getLocation());
         player.sendTitle(new Title(
                 CC.translate("&a&lMINE CREATED"),
                 CC.translate("&fTeleported you to your mine"),

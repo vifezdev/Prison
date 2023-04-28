@@ -5,6 +5,7 @@ import gg.convict.prison.privatemine.grid.SchematicType;
 import lol.vera.veraspigot.util.CC;
 import lombok.Data;
 import org.bukkit.Bukkit;
+import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -91,6 +92,17 @@ public class Mine {
         }
 
         return result;
+    }
+
+    public void teleport(Player player) {
+        for (Chunk chunk : cuboid.getChunks()) {
+            if (chunk.isLoaded())
+                continue;
+
+            chunk.load();
+        }
+
+        player.teleport(spawnLocation.getLocation());
     }
 
 }

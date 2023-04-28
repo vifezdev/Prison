@@ -30,7 +30,7 @@ public class MineTeleportButton extends Button {
     @Override
     public void click(Player player, int slot, ClickType clickType, int hotbarButton) {
         player.closeInventory();
-        player.teleport(mine.getSpawnLocation().getLocation());
+        mine.teleport(player);
 
         player.sendTitle(new Title(
                 CC.translate("&d&lTELEPORTED"),

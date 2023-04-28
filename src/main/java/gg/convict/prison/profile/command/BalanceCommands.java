@@ -14,7 +14,8 @@ import java.math.BigDecimal;
 public class BalanceCommands {
 
     @Command(names = {"balance", "eco", "bal"},
-            description = "View a player's balance")
+            description = "View a player's balance",
+            async = true)
     public void execute(CommandSender sender, @Param(name = "target", defaultValue = "@self") Profile target) {
         sender.sendMessage(CC.format(
                 "&fBalance of &b%s&f: &2$&a%s&f.",
@@ -24,7 +25,8 @@ public class BalanceCommands {
 
     @Command(names = "pay",
             description = "Pay a player money",
-            playerOnly = true)
+            playerOnly = true,
+            async = true)
     public void pay(Player player,
                     @Param(name = "target") Profile target,
                     @Param(name = "amount") int amount) {
@@ -60,7 +62,8 @@ public class BalanceCommands {
     @Command(names = {"balance set", "eco set", "bal set"},
             permission = "prison.balance.set",
             description = "Set the balance of a player",
-            hidden = true)
+            hidden = true,
+            async = true)
     public void set(CommandSender sender,
                     @Param(name = "target") Profile target,
                     @Param(name = "amount") int amount) {

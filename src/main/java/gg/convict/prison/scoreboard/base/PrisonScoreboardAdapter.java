@@ -5,6 +5,7 @@ import gg.convict.prison.profile.ProfileModule;
 import gg.convict.prison.scoreboard.ScoreboardModule;
 import gg.convict.prison.scoreboard.ScoreboardSection;
 import gg.convict.prison.scoreboard.section.CombatBoardSection;
+import gg.convict.prison.scoreboard.section.MineBoardSection;
 import gg.convict.prison.scoreboard.section.StatsBoardSection;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.scoreboard.ScoreboardAdapter;
@@ -24,7 +25,8 @@ public class PrisonScoreboardAdapter implements ScoreboardAdapter {
 
         this.sections.addAll(Arrays.asList(
                 new StatsBoardSection(),
-                new CombatBoardSection()));
+                new CombatBoardSection(),
+                new MineBoardSection()));
     }
 
     @Override

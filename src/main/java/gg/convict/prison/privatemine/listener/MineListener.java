@@ -36,7 +36,7 @@ public class MineListener implements Listener {
         Profile profile = ProfileModule.get()
                 .getProfileHandler().getProfile(player);
 
-        profile.addBalance(100000);
+        profile.addBalance(100000); // todo debug value
         event.getBlock().setType(Material.AIR);
 
         double airPercentage = mine.getAirPercentage();
