@@ -7,7 +7,6 @@ import gg.convict.prison.crate.CrateModule;
 import gg.convict.prison.mongo.MongoModule;
 import gg.convict.prison.pickaxe.PickaxeModule;
 import gg.convict.prison.position.PositionCommand;
-import gg.convict.prison.position.workload.WorkloadRunnable;
 import gg.convict.prison.privatemine.MineModule;
 import gg.convict.prison.profile.ProfileModule;
 import gg.convict.prison.region.RegionModule;
@@ -23,8 +22,8 @@ import org.hydrapvp.libraries.configuration.*;
 import org.hydrapvp.libraries.mongo.MongoService;
 import org.hydrapvp.libraries.plugin.PluginBootstrap;
 import org.hydrapvp.libraries.tab.TabService;
+import org.hydrapvp.libraries.workload.WorkloadRunnable;
 
-import java.text.DecimalFormat;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

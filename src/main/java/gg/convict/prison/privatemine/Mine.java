@@ -1,8 +1,6 @@
 package gg.convict.prison.privatemine;
 
 import gg.convict.prison.PrisonPlugin;
-import gg.convict.prison.position.workload.WorkloadRunnable;
-import gg.convict.prison.position.workload.impl.BlockPlaceWorkload;
 import gg.convict.prison.privatemine.grid.SchematicType;
 import lombok.Data;
 import org.bukkit.Bukkit;
@@ -12,6 +10,8 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
 import org.hydrapvp.libraries.cuboid.Cuboid;
+import org.hydrapvp.libraries.workload.WorkloadRunnable;
+import org.hydrapvp.libraries.workload.impl.BlockPlaceWorkload;
 
 import java.util.*;
 

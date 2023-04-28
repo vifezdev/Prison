@@ -1,7 +1,7 @@
 package gg.convict.prison.position;
 
 import gg.convict.prison.PrisonPlugin;
-import gg.convict.prison.position.workload.impl.BlockPlaceWorkload;
+import gg.convict.prison.position.data.PositionData;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -11,6 +11,7 @@ import org.hydrapvp.libraries.command.annotation.Command;
 import org.hydrapvp.libraries.command.annotation.Param;
 import org.hydrapvp.libraries.cuboid.Cuboid;
 import org.hydrapvp.libraries.utils.CC;
+import org.hydrapvp.libraries.workload.impl.BlockPlaceWorkload;
 
 import java.util.HashMap;
 import java.util.Map;
