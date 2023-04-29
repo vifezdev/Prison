@@ -1,6 +1,7 @@
 package gg.convict.prison;
 
 import gg.convict.prison.banknote.BankNoteModule;
+import gg.convict.prison.command.FlyCommand;
 import gg.convict.prison.command.SpawnCommands;
 import gg.convict.prison.config.PrisonConfig;
 import gg.convict.prison.crate.CrateModule;
@@ -18,7 +19,8 @@ import lombok.SneakyThrows;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.hydrapvp.libraries.command.CommandService;
-import org.hydrapvp.libraries.configuration.*;
+import org.hydrapvp.libraries.configuration.ConfigurationService;
+import org.hydrapvp.libraries.configuration.JsonConfigurationService;
 import org.hydrapvp.libraries.mongo.MongoService;
 import org.hydrapvp.libraries.plugin.PluginBootstrap;
 import org.hydrapvp.libraries.tab.TabService;
@@ -50,7 +52,9 @@ public class PrisonPlugin extends JavaPlugin {
         this.mongoService.connect();
 
         CommandService.register(this,
-                new PositionCommand(),
+                new PositionCommand(), // debug
+
+                new FlyCommand(),
                 new SpawnCommands(this));
 
         PluginBootstrap.registerModules(

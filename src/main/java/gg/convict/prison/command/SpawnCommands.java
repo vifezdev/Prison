@@ -26,7 +26,10 @@ public class SpawnCommands {
         }
 
         player.teleport(locationConfig.getLocation());
-        player.sendMessage(CC.translate("&fYou have been teleported to &bSpawn&f."));
+        player.sendMessage(CC.format(
+                "%sYou have been teleported to &bSpawn&f.",
+                PrisonPlugin.PREFIX
+        ));
     }
 
     @Command(
@@ -39,7 +42,10 @@ public class SpawnCommands {
 
         plugin.getPrisonConfig().setSpawnLocation(locationConfig);
 
-        player.sendMessage(CC.translate("&fYou have set the location of &bSpawn&f."));
+        player.sendMessage(CC.format(
+                "%sYou have set the location of &bSpawn&f.",
+                PrisonPlugin.PREFIX
+        ));
     }
 
 }

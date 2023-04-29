@@ -2,6 +2,7 @@ package gg.convict.prison.privatemine;
 
 import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.privatemine.grid.SchematicType;
+import gg.convict.prison.privatemine.util.BorderUtil;
 import lol.vera.veraspigot.util.CC;
 import lombok.Data;
 import org.bukkit.Bukkit;
@@ -10,6 +11,8 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.github.paperspigot.Title;
 import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
 import org.hydrapvp.libraries.cuboid.Cuboid;
@@ -31,6 +34,8 @@ public class Mine {
     private Material blockMaterial = Material.STONE;
 
     private boolean open = false;
+    private transient double airPercentage = 0;
+
     private final Map<UUID, Boolean> memberAccess = new HashMap<>();
 
     public void resetBlocks(boolean teleportPlayers) {
@@ -62,7 +67,7 @@ public class Mine {
         return center;
     }
 
-    public double getAirPercentage() {
+    public void updateAirPercentage() {
         int found = 0;
 
         for (Block block : mineCuboid) {
@@ -71,7 +76,7 @@ public class Mine {
                 found += 1;
         }
 
-        return ((double) found / mineCuboid.getVolume()) * 100;
+        this.airPercentage = ((double) found / mineCuboid.getVolume()) * 100;
     }
 
     public boolean canMine(Player player, Location location) {
@@ -101,6 +106,15 @@ public class Mine {
 
             chunk.load();
         }
+
+        player.addPotionEffect(new PotionEffect(
+                PotionEffectType.NIGHT_VISION,
+                Integer.MAX_VALUE,
+                2
+        ));
+
+        BorderUtil.sendBorder(player,
+                mineCuboid.getCenter(), 150);
 
         player.teleport(spawnLocation.getLocation());
     }

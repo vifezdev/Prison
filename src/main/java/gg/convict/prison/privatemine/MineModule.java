@@ -7,6 +7,8 @@ import gg.convict.prison.privatemine.command.PrivateMineCommand;
 import gg.convict.prison.privatemine.grid.command.*;
 import gg.convict.prison.privatemine.listener.MineJoinListener;
 import gg.convict.prison.privatemine.listener.MineListener;
+import gg.convict.prison.privatemine.packet.PrisonPacketHandler;
+import lol.vera.veraspigot.VeraSpigot;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.hydrapvp.libraries.plugin.PluginModule;
@@ -22,6 +24,11 @@ public class MineModule extends PluginModule {
     @Override
     public void onEnable() {
         MineHandler handler = getHandler();
+
+        VeraSpigot.INSTANCE.registerMovementHandlers(
+                getPlugin(),
+                new PrisonPacketHandler(this)
+        );
 
         Bukkit.getScheduler().runTaskLater(getPlugin(), () -> {
             handler.getUsedMines().forEach(mine -> mine.resetBlocks(false));
