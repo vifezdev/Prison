@@ -54,6 +54,8 @@ public class PrisonPlugin extends JavaPlugin {
         CommandService.register(this,
                 new PositionCommand(), // debug
 
+                new TestNpcCommand(),
+
                 new FlyCommand(),
                 new SpawnCommands(this));
 
