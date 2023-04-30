@@ -55,7 +55,7 @@ public class PrisonTabAdapter implements TabAdapter {
 
     @Override
     public String getFooter(Player player) {
-        CoreShared core = CoreShared.getInstance();
+        CoreShared core = CoreShared.get();
         int globalCount = core.getServerHandler().getGlobalCount();
 
         return String.join("\n", new ArrayList<String>() {{
@@ -88,7 +88,7 @@ public class PrisonTabAdapter implements TabAdapter {
     public CopyOnWriteArrayList<Profile> getSortedProfiles() {
         CopyOnWriteArrayList<Profile> result = new CopyOnWriteArrayList<>();
         for (Player player : Bukkit.getOnlinePlayers())
-            result.add(CoreShared.getInstance()
+            result.add(CoreShared.get()
                     .getProfileHandler().getProfile(player.getUniqueId()));
 
         result.sort((o1, o2) -> (o2.getBestRank() == null ? 0 : o2.getBestRank().getWeight())
