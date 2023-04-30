@@ -12,7 +12,6 @@ import org.hydrapvp.libraries.tab.TabEntry;
 import org.hydrapvp.libraries.utils.CC;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class PrisonTabAdapter implements TabAdapter {
