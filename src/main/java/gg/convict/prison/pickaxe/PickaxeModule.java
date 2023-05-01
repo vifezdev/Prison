@@ -2,7 +2,8 @@ package gg.convict.prison.pickaxe;
 
 import com.google.common.collect.ImmutableList;
 import gg.convict.prison.PrisonPlugin;
-import gg.convict.prison.pickaxe.enchant.*;
+import gg.convict.prison.pickaxe.enchant.EnchantConfig;
+import gg.convict.prison.pickaxe.enchant.EnchantHandler;
 import gg.convict.prison.pickaxe.enchant.command.TestEnchantCommand;
 import gg.convict.prison.pickaxe.listener.PickaxeListener;
 import lombok.Getter;

@@ -1,6 +1,7 @@
 package gg.convict.prison.pickaxe.listener;
 
 import gg.convict.prison.pickaxe.*;
+import gg.convict.prison.pickaxe.enchant.menu.EnchantMenu;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.entity.Item;
@@ -8,7 +9,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
@@ -17,6 +20,20 @@ import org.bukkit.inventory.ItemStack;
 public class PickaxeListener implements Listener {
 
     private final PickaxeModule module;
+
+    @EventHandler
+    public void onInteract(PlayerInteractEvent event) {
+        if (event.getAction() != Action.RIGHT_CLICK_AIR
+                && (event.getAction() != Action.RIGHT_CLICK_BLOCK))
+            return;
+
+        ItemStack item = event.getItem();
+        if (item == null
+                || item.getType() != Material.DIAMOND_PICKAXE)
+            return;
+
+        new EnchantMenu().openMenu(event.getPlayer());
+    }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPlayerItemHeld(PlayerItemHeldEvent event) {
@@ -68,5 +85,4 @@ public class PickaxeListener implements Listener {
 
         return data;
     }
-
 }
