@@ -6,10 +6,11 @@ import gg.convict.prison.privatemine.util.BorderUtil;
 import lol.vera.veraspigot.util.CC;
 import lombok.Data;
 import org.bukkit.Bukkit;
-import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -100,12 +101,13 @@ public class Mine {
     }
 
     public void teleport(Player player) {
-        for (Chunk chunk : cuboid.getChunks()) {
-            if (chunk.isLoaded())
-                continue;
+        World world = (World) ((CraftWorld) cuboid.getWorld()).getHandle();
+        world.getChunkAtAsync(spawnLocation.getLocation(), chunk -> {
+            if (!chunk.isLoaded())
+                chunk.load();
 
-            chunk.load();
-        }
+            player.teleport(spawnLocation.getLocation());
+        });
 
         player.addPotionEffect(new PotionEffect(
                 PotionEffectType.NIGHT_VISION,

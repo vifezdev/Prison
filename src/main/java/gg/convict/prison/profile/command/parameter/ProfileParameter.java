@@ -43,7 +43,7 @@ public class ProfileParameter implements ParameterType<Profile> {
 
         profile = ProfileModule.get().getProfileHandler().loadProfile(uuid);
         if (profile == null)
-            commandSender.sendMessage(CC.RED + "This player does not exist.");
+            commandSender.sendMessage(CC.RED + "This p<layer does not exist.");
 
         return profile;
     }
