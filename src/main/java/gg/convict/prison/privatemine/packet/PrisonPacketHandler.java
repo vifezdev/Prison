@@ -2,7 +2,7 @@ package gg.convict.prison.privatemine.packet;
 
 import gg.convict.prison.privatemine.Mine;
 import gg.convict.prison.privatemine.MineModule;
-import lol.vera.veraspigot.packet.IMovementHandler;
+import lol.vera.spigot.handler.IMovementHandler;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.server.v1_8_R3.PacketPlayInFlying;
 import org.bukkit.Location;

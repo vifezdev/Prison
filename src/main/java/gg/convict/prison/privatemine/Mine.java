@@ -5,6 +5,7 @@ import gg.convict.prison.privatemine.grid.SchematicType;
 import gg.convict.prison.privatemine.util.BorderUtil;
 import lol.vera.veraspigot.util.CC;
 import lombok.Data;
+import net.minecraft.server.v1_8_R3.WorldServer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -101,8 +102,7 @@ public class Mine {
     }
 
     public void teleport(Player player) {
-        World world = (World) ((CraftWorld) cuboid.getWorld()).getHandle();
-        world.getChunkAtAsync(spawnLocation.getLocation(), chunk -> {
+      cuboid.getWorld().getChunkAtAsync(spawnLocation.getLocation(), chunk -> {
             if (!chunk.isLoaded())
                 chunk.load();
 
