@@ -4,6 +4,7 @@ import gg.convict.prison.profile.Profile;
 import gg.convict.prison.profile.statistic.ProfileStatistics;
 import gg.convict.prison.region.flag.RegionFlag;
 import gg.convict.prison.scoreboard.ScoreboardSection;
+import gg.convict.prison.scoreboard.bar.BarPosition;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.utils.CC;
 
@@ -17,7 +18,6 @@ public class CombatBoardSection extends ScoreboardSection {
         if (statistics == null)
             return;
 
-        lines.add("&c&7&m-------------------");
         lines.add("&b&l ▎ &3Combat Stats");
         lines.add("&b&l ▎ &fKills: &b" + statistics.getKills());
         lines.add("&b&l ▎ &fDeaths: &b" + statistics.getDeaths());
@@ -27,6 +27,11 @@ public class CombatBoardSection extends ScoreboardSection {
     @Override
     public boolean canDisplay(Player player) {
         return RegionFlag.CAN_DAMAGE.isApplicableAt(player.getLocation());
+    }
+
+    @Override
+    public BarPosition getBarPosition(Player player) {
+        return BarPosition.TOP;
     }
 
 }

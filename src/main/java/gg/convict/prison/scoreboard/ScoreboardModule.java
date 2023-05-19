@@ -7,6 +7,8 @@ import org.hydrapvp.libraries.scoreboard.ScoreboardService;
 
 public class ScoreboardModule extends PluginModule {
 
+    public static int BAR_POSITION = -1;
+
     public ScoreboardModule() {
         super("scoreboard", PrisonPlugin.get(), new ScoreboardConfig());
     }

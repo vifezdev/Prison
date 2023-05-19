@@ -4,11 +4,13 @@ import gg.convict.prison.profile.Profile;
 import gg.convict.prison.profile.ProfileModule;
 import gg.convict.prison.scoreboard.ScoreboardModule;
 import gg.convict.prison.scoreboard.ScoreboardSection;
+import gg.convict.prison.scoreboard.bar.BarPosition;
 import gg.convict.prison.scoreboard.section.CombatBoardSection;
 import gg.convict.prison.scoreboard.section.MineBoardSection;
 import gg.convict.prison.scoreboard.section.StatsBoardSection;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.scoreboard.ScoreboardAdapter;
+import org.hydrapvp.libraries.utils.CC;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,11 +46,24 @@ public class PrisonScoreboardAdapter implements ScoreboardAdapter {
 
         lines.add("&a&7&m-------------------");
 
-        sections.forEach(scoreboardSection -> {
-            if (!scoreboardSection.canDisplay(player))
+        sections.forEach(section -> {
+            BarPosition position = section.getBarPosition(player);
+            if (!section.canDisplay(player))
                 return;
 
-            scoreboardSection.getLines(player, profile, lines);
+            if (position == BarPosition.TOP)
+                lines.add(CC.format(
+                        "&%s&7&m-------------------",
+                        ScoreboardModule.BAR_POSITION += 1
+                ));
+
+            section.getLines(player, profile, lines);
+
+            if (position == BarPosition.BOTTOM)
+                lines.add(CC.format(
+                        "&%s&7&m-------------------",
+                        ScoreboardModule.BAR_POSITION += 1
+                ));
         });
 
         lines.add("&a");
