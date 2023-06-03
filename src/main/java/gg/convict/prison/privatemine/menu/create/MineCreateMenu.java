@@ -36,4 +36,9 @@ public class MineCreateMenu extends Menu {
         return buttonMap;
     }
 
+    @Override
+    public int getSize() {
+        return 27;
+    }
+
 }
