@@ -33,7 +33,7 @@ public class MineListener implements Listener {
         Profile profile = ProfileModule.get()
                 .getProfileHandler().getProfile(player);
 
-        profile.addBalance(100000); // todo debug value
+        profile.addBalance(100000); // todo calculate value
         event.getBlock().setType(Material.AIR);
 
         mine.updateAirPercentage();

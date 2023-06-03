@@ -40,6 +40,14 @@ public class MineBlocksButton extends Button {
 
     @Override
     public void click(Player player, int slot, ClickType clickType, int hotbarButton) {
+        if (!mine.canReset()) {
+            player.sendMessage(CC.format(
+                    "&cYou can reset your mine blocks in &b%s&c.",
+                    mine.formatNextReset()
+            ));
+            return;
+        }
+
         new BlockMenu(mine).openMenu(player);
     }
 

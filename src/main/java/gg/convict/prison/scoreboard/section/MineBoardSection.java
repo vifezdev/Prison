@@ -6,6 +6,7 @@ import gg.convict.prison.privatemine.MineModule;
 import gg.convict.prison.profile.Profile;
 import gg.convict.prison.scoreboard.ScoreboardSection;
 import gg.convict.prison.scoreboard.bar.BarPosition;
+import net.jafama.FastMath;
 import org.bukkit.entity.Player;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class MineBoardSection extends ScoreboardSection {
         Mine mine = MineModule.get().getHandler().getMine(player.getLocation());
         lines.add("&b&l ▎ &3Mine");
         lines.add("&b&l ▎ &fOwner: &b" + SenderUtil.getName(mine.getOwner()));
-        lines.add("&b&l ▎ &fBlocks Left: &b" + Math.round(100 - mine.getAirPercentage()) + "%");
+        lines.add("&b&l ▎ &fBlocks Left: &b" + FastMath.round(100 - mine.getAirPercentage()) + "%");
     }
 
     @Override

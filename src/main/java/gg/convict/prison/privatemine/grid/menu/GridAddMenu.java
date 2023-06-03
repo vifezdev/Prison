@@ -2,9 +2,8 @@ package gg.convict.prison.privatemine.grid.menu;
 
 import gg.convict.prison.privatemine.MineHandler;
 import gg.convict.prison.privatemine.grid.SchematicType;
-import gg.convict.prison.privatemine.grid.menu.button.GridAddButton;
 import gg.convict.prison.privatemine.grid.menu.button.GridAddTypeButton;
-import gg.convict.prison.privatemine.util.MineList;
+import gg.convict.prison.privatemine.util.list.MineList;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -18,10 +17,10 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class GridAddMenu extends Menu {
 
-    private final MineList<Integer> cyanBorderSlots
+    public static final MineList<Integer> CYAN_BORDER_SLOTS
             = MineList.of(0, 2, 4, 6, 8, 18, 20, 22, 24, 26);
 
-    private final MineList<Integer> blueBorderSlots
+    public static final MineList<Integer> BLUE_BORDER_SLOTS
             = MineList.of(1, 3, 5, 7, 9, 17, 19, 21, 23, 25);
 
     private final MineHandler handler;
@@ -37,10 +36,10 @@ public class GridAddMenu extends Menu {
         Map<Integer, Button> buttonMap = new HashMap<>();
 
         for (int i = 0; i < getSize(); i++) {
-            if (cyanBorderSlots.contains(i))
+            if (CYAN_BORDER_SLOTS.contains(i))
                 buttonMap.put(i, Button.createPlaceholder(Material.STAINED_GLASS_PANE, (short) 3));
 
-            if (blueBorderSlots.contains(i))
+            if (BLUE_BORDER_SLOTS.contains(i))
                 buttonMap.put(i, Button.createPlaceholder(Material.STAINED_GLASS_PANE, (short) 11));
         }
 

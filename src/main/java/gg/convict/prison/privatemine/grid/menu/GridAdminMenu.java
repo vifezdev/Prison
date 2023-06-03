@@ -4,7 +4,7 @@ import gg.convict.prison.privatemine.MineHandler;
 import gg.convict.prison.privatemine.MineModule;
 import gg.convict.prison.privatemine.grid.menu.button.GridAddButton;
 import gg.convict.prison.privatemine.grid.menu.button.GridStatusButton;
-import gg.convict.prison.privatemine.util.MineList;
+import gg.convict.prison.privatemine.util.list.MineList;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.menu.Button;

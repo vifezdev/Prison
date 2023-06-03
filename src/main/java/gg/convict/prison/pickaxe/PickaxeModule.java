@@ -7,7 +7,9 @@ import gg.convict.prison.pickaxe.enchant.EnchantHandler;
 import gg.convict.prison.pickaxe.enchant.command.TestEnchantCommand;
 import gg.convict.prison.pickaxe.listener.PickaxeListener;
 import lombok.Getter;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
+import org.bukkit.inventory.ItemStack;
 import org.hydrapvp.libraries.LibrariesBukkit;
 import org.hydrapvp.libraries.configuration.ConfigurationService;
 import org.hydrapvp.libraries.plugin.PluginModule;
@@ -54,6 +56,20 @@ public class PickaxeModule extends PluginModule {
         return ImmutableList.of(
                 new TestEnchantCommand()
         );
+    }
+
+    public PickaxeData setupData(Player player, ItemStack item) {
+        PickaxeData data = getHandler().getData(item);
+        if (data == null) {
+            data = new PickaxeData();
+            data.setup(player, item);
+
+            getHandler().addData(item, data);
+        } else {
+            data.applyItemMeta(player, item);
+        }
+
+        return data;
     }
 
     public PickaxeHandler getHandler() {

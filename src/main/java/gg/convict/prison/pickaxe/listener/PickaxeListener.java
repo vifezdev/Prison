@@ -44,7 +44,7 @@ public class PickaxeListener implements Listener {
                 || item.getType() != Material.DIAMOND_PICKAXE)
             return;
 
-        PickaxeData data = setupData(player, item);
+        PickaxeData data = module.setupData(player, item);
         data.getEnchantments().forEach((enchant, integer) ->
                 enchant.apply(player, item, integer));
     }
@@ -71,18 +71,7 @@ public class PickaxeListener implements Listener {
         ItemStack item = event.getItem().getItemStack();
 
         if (item.getType() == Material.DIAMOND_PICKAXE)
-            setupData(event.getPlayer(), item);
+            module.setupData(event.getPlayer(), item);
     }
 
-    public PickaxeData setupData(Player player, ItemStack item) {
-        PickaxeData data = module.getHandler().getData(item);
-        if (data == null) {
-            data = new PickaxeData();
-            data.setup(player, item);
-
-            module.getHandler().addData(item, data);
-        } else data.applyItemMeta(player, item);
-
-        return data;
-    }
 }

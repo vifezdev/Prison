@@ -36,7 +36,7 @@ public class MineHandler implements StaticConfiguration {
         Mine freeMine = getFreeMine(type);
         if (freeMine == null) {
             player.sendMessage(CC.RED + "No mines found, creating one for you.");
-            return null;
+            return null; // todo
         }
 
         freeMine.setOwner(player.getUniqueId());

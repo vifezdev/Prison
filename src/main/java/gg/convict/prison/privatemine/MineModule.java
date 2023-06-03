@@ -2,7 +2,6 @@ package gg.convict.prison.privatemine;
 
 import com.google.common.collect.ImmutableList;
 import gg.convict.prison.PrisonPlugin;
-import gg.convict.prison.privatemine.allocation.MineAllocateCommand;
 import gg.convict.prison.privatemine.command.PrivateMineCommand;
 import gg.convict.prison.privatemine.grid.command.*;
 import gg.convict.prison.privatemine.listener.MineJoinListener;
@@ -47,8 +46,6 @@ public class MineModule extends PluginModule {
     @Override
     public List<Object> getCommands() {
         return ImmutableList.of(
-                new MineAllocateCommand(this),
-
                 new GridCommand(),
                 new GridTeleportCommand(),
                 new PrivateMineCommand(this)

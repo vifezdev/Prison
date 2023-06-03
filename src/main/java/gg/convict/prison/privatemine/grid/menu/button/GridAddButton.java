@@ -3,7 +3,6 @@ package gg.convict.prison.privatemine.grid.menu.button;
 import gg.convict.prison.privatemine.MineHandler;
 import gg.convict.prison.privatemine.grid.SchematicType;
 import gg.convict.prison.privatemine.grid.menu.GridAddMenu;
-import gg.convict.prison.privatemine.util.MineList;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

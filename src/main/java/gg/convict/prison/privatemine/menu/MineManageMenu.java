@@ -3,8 +3,8 @@ package gg.convict.prison.privatemine.menu;
 import gg.convict.prison.privatemine.Mine;
 import gg.convict.prison.privatemine.menu.button.*;
 import gg.convict.prison.privatemine.menu.filler.PrisonMenuFiller;
-import gg.convict.prison.privatemine.util.IntMineList;
-import gg.convict.prison.privatemine.util.MineList;
+import gg.convict.prison.privatemine.util.list.IntMineList;
+import gg.convict.prison.privatemine.util.list.MineList;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -19,7 +19,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class MineManageMenu extends Menu {
 
-    private static final IntMineList BORDER_SLOTS = new IntMineList()
+    private static final MineList<Integer> BORDER_SLOTS = new IntMineList()
             .add(9, 18, 27, 36)
             .add(17, 26, 35, 44)
             .addRange(0, 9)
@@ -31,8 +31,6 @@ public class MineManageMenu extends Menu {
     public String getTitle(Player player) {
         return CC.AQUA + "Private Mine";
     }
-
-    // todo 1m reset cooldown
 
     @Override
     public Map<Integer, Button> getButtons(Player player) {

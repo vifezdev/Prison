@@ -21,21 +21,30 @@ public class MineResetButton extends Button {
         return new ItemBuilder(Material.REDSTONE)
                 .setDisplayName(CC.RED + CC.BOLD + "Reset Mine")
                 .addToLore(
-                        CC.format("&fCan Reset: &c%s", getCanReset()),
+                        CC.format("&fCan Reset In: &c%s", getCanReset()),
                         "",
                         CC.translate("&fClick to reset &cyour mine&f.")
                 ).build();
     }
 
     public String getCanReset() {
-        return "Now";
+        return mine.canReset() ? "Now" : mine.formatNextReset();
     }
 
     @Override
     public void click(Player player, int slot, ClickType clickType, int hotbarButton) {
+        if (!mine.canReset()) {
+            player.sendMessage(CC.format(
+                    "&cYou can reset your mine in &b%s&c.",
+                    mine.formatNextReset()
+            ));
+            return;
+        }
+
         player.closeInventory();
 
         mine.resetBlocks(true);
+        mine.setLastReset(System.currentTimeMillis());
 
         player.sendMessage(CC.format(
                 "%sYou have reset &byour mine&f.",

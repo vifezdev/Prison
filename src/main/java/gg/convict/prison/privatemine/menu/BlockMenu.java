@@ -41,6 +41,7 @@ public class BlockMenu extends Menu {
             buttonMap.put(buttonMap.size(), new BlockButton(block, material -> {
                 mine.setBlockMaterial(material);
                 mine.resetBlocks(true);
+                mine.setLastReset(System.currentTimeMillis());
 
                 player.sendMessage(CC.format(
                         "%sSet the block type of &byour mine&f to &b%s&f.",

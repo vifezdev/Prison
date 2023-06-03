@@ -1,6 +1,9 @@
 package gg.convict.prison.profile.listener;
 
 import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.pickaxe.PickaxeModule;
+import gg.convict.prison.privatemine.MineHandler;
+import gg.convict.prison.privatemine.MineModule;
 import gg.convict.prison.profile.ProfileModule;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
@@ -30,13 +33,17 @@ public class ProfileListener implements Listener {
         player.setFoodLevel(20);
         player.setHealth(20);
 
-        LocationConfig locationConfig = PrisonPlugin.get().getPrisonConfig().getSpawnLocation();
+        LocationConfig locationConfig = PrisonPlugin.get()
+                .getPrisonConfig().getSpawnLocation();
 
         if (!player.hasPlayedBefore()) {
             if (locationConfig != null)
                 player.teleport(locationConfig.getLocation());
 
-            player.getInventory().addItem(new ItemStack(Material.DIAMOND_PICKAXE));
+            ItemStack itemStack = new ItemStack(Material.DIAMOND_PICKAXE);
+            PickaxeModule.get().setupData(player, itemStack);
+
+            player.getInventory().addItem(itemStack);
         }
     }
 

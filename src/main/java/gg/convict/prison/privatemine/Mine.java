@@ -18,13 +18,18 @@ import org.bukkit.potion.PotionEffectType;
 import org.github.paperspigot.Title;
 import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
 import org.hydrapvp.libraries.cuboid.Cuboid;
+import org.hydrapvp.libraries.utils.TimeUtils;
 import org.hydrapvp.libraries.workload.WorkloadRunnable;
 import org.hydrapvp.libraries.workload.impl.BlockPlaceWorkload;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 @Data
 public class Mine {
+
+    public static final long RESET_INTERVAL
+            = TimeUnit.MINUTES.toMillis(1);
 
     private UUID owner;
 
@@ -34,6 +39,8 @@ public class Mine {
     private SchematicType type;
     private LocationConfig spawnLocation;
     private Material blockMaterial = Material.STONE;
+
+    private long lastReset = -1;
 
     private boolean open = false;
     private transient double airPercentage = 0;
@@ -61,6 +68,19 @@ public class Mine {
                         20, 80, 20
                 ));
             });
+
+        airPercentage = 0;
+    }
+
+    public boolean canReset() {
+        if (lastReset == -1)
+            return true;
+
+        return System.currentTimeMillis() - lastReset > RESET_INTERVAL;
+    }
+
+    public String formatNextReset() {
+        return TimeUtils.formatDetailed(lastReset + RESET_INTERVAL);
     }
 
     public Location getCenterLocation() {
