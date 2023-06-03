@@ -54,7 +54,7 @@ public class PrisonScoreboardAdapter implements ScoreboardAdapter {
             if (position == BarPosition.TOP)
                 lines.add(CC.format(
                         "&%s&7&m-------------------",
-                        ScoreboardModule.BAR_POSITION += 1
+                        sections.indexOf(section)
                 ));
 
             section.getLines(player, profile, lines);
@@ -62,7 +62,7 @@ public class PrisonScoreboardAdapter implements ScoreboardAdapter {
             if (position == BarPosition.BOTTOM)
                 lines.add(CC.format(
                         "&%s&7&m-------------------",
-                        ScoreboardModule.BAR_POSITION += 1
+                        sections.indexOf(section) + "&a"
                 ));
         });
 

@@ -80,7 +80,7 @@ public class Mine {
     }
 
     public String formatNextReset() {
-        return TimeUtils.formatDetailed(lastReset + RESET_INTERVAL);
+        return TimeUtils.formatDetailed((lastReset + RESET_INTERVAL) - System.currentTimeMillis());
     }
 
     public Location getCenterLocation() {
