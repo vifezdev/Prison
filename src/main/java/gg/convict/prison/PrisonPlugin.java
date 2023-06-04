@@ -6,6 +6,7 @@ import gg.convict.prison.command.FlyCommand;
 import gg.convict.prison.command.SpawnCommands;
 import gg.convict.prison.config.PrisonConfig;
 import gg.convict.prison.crate.CrateModule;
+import gg.convict.prison.leaderboard.LeaderboardModule;
 import gg.convict.prison.profile.minecrate.MinecrateHandler;
 import gg.convict.prison.mongo.MongoModule;
 import gg.convict.prison.pickaxe.PickaxeModule;
@@ -69,7 +70,8 @@ public class PrisonPlugin extends JavaPlugin {
                 new PickaxeModule(),
                 new BankNoteModule(),
                 new BroadcastModule(),
-                new ScoreboardModule()
+                new ScoreboardModule(),
+                new LeaderboardModule()
         );
 
         new TabService(this, new PrisonTabAdapter());
@@ -82,6 +84,7 @@ public class PrisonPlugin extends JavaPlugin {
     @Override
     public void onDisable() {
         configService.saveConfiguration(prisonConfig, PrisonConfig.getFile());
+        EXECUTOR.shutdown();
     }
 
     public static PrisonPlugin get() {
