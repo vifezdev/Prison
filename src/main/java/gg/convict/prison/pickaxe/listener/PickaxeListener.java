@@ -15,6 +15,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 
 @RequiredArgsConstructor
 public class PickaxeListener implements Listener {
@@ -38,10 +39,20 @@ public class PickaxeListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPlayerItemHeld(PlayerItemHeldEvent event) {
         Player player = event.getPlayer();
-        ItemStack item = player.getInventory().getItem(event.getNewSlot());
+        PlayerInventory inventory = player.getInventory();
 
-        if (item == null
-                || item.getType() != Material.DIAMOND_PICKAXE)
+        ItemStack item = inventory.getItem(event.getNewSlot());
+        ItemStack previousItem = inventory.getItem(event.getPreviousSlot());
+
+        if (previousItem != null && previousItem.getType() == Material.DIAMOND_PICKAXE) {
+            PickaxeData data = module.getHandler().getData(previousItem);
+
+            if (data != null)
+                data.getEnchantments().forEach((enchant, integer) ->
+                        enchant.remove(player, item, integer));
+        }
+
+        if (item == null || item.getType() != Material.DIAMOND_PICKAXE)
             return;
 
         PickaxeData data = module.setupData(player, item);

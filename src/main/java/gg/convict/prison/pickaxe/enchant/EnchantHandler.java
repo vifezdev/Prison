@@ -14,6 +14,8 @@ public class EnchantHandler {
 
     public EnchantHandler() {
         registerEnchants(
+                new FortuneEnchant(),
+                new UnbreakingEnchant(),
                 new EfficiencyEnchant()
         );
 

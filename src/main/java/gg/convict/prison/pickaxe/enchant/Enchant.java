@@ -19,4 +19,7 @@ public abstract class Enchant {
     public void apply(Player player, ItemStack item, Integer level) {
     }
 
+    public void remove(Player player, ItemStack item, Integer level) {
+    }
+
 }
