@@ -12,8 +12,9 @@ public class LeaderboardCommand {
             description = "Show the leaderboards",
             playerOnly = true)
     public void execute(Player player, @Param(name = "type") AbstractLeaderboard<?> leaderboard) {
+        player.sendMessage(CC.CHAT_BAR);
         player.sendMessage(CC.format(
-                "&fLeaderboards: &b&l",
+                "&b&l%s Leaderboards",
                 leaderboard.getDisplay()
         ));
 
@@ -22,6 +23,7 @@ public class LeaderboardCommand {
                 entry.getName(),
                 entry.getValue()
         )));
+        player.sendMessage(CC.CHAT_BAR);
     }
 
 }
