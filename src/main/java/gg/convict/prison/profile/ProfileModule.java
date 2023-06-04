@@ -7,6 +7,7 @@ import gg.convict.prison.profile.command.BalanceCommands;
 import gg.convict.prison.profile.command.TokenCommands;
 import gg.convict.prison.profile.command.parameter.ProfileParameter;
 import gg.convict.prison.profile.listener.ProfileListener;
+import gg.convict.prison.profile.minecrate.MinecrateHandler;
 import lombok.Getter;
 import org.bukkit.event.Listener;
 import org.hydrapvp.libraries.command.parameter.ParameterType;
@@ -19,6 +20,7 @@ import java.util.Map;
 public class ProfileModule extends PluginModule {
 
     private ProfileHandler profileHandler;
+    private MinecrateHandler minecrateHandler;
 
     public ProfileModule() {
         super("profiles", PrisonPlugin.get(), null);
@@ -26,8 +28,8 @@ public class ProfileModule extends PluginModule {
 
     @Override
     public void onEnable() {
-        // todo change this
         this.profileHandler = new ProfileHandler(PrisonPlugin.get());
+        this.minecrateHandler = new MinecrateHandler(PrisonPlugin.get());
     }
 
     @Override

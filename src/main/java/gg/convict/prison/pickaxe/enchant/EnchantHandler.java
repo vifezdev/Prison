@@ -1,9 +1,13 @@
 package gg.convict.prison.pickaxe.enchant;
 
+import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.pickaxe.PickaxeModule;
 import gg.convict.prison.pickaxe.enchant.data.EnchantData;
 import gg.convict.prison.pickaxe.enchant.impl.*;
+import gg.convict.prison.pickaxe.enchant.impl.minecrate.CrateFinderEnchant;
 import lombok.Getter;
+import org.bukkit.Bukkit;
+import org.bukkit.event.Listener;
 
 import java.util.*;
 
@@ -15,8 +19,10 @@ public class EnchantHandler {
     public EnchantHandler() {
         registerEnchants(
                 new FortuneEnchant(),
+                new JumpBoostEnchant(),
                 new UnbreakingEnchant(),
-                new EfficiencyEnchant()
+                new EfficiencyEnchant(),
+                new CrateFinderEnchant()
         );
 
         PickaxeModule.get().saveEnchantConfig();
@@ -34,6 +40,8 @@ public class EnchantHandler {
 
             if (!enchantMap.containsKey(lowerCaseId))
                 enchantMap.put(lowerCaseId, new EnchantData(1, "Description"));
+
+            Bukkit.getPluginManager().registerEvents(enchant, PrisonPlugin.get());
         }
     }
 

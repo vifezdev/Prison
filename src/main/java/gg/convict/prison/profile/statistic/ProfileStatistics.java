@@ -12,6 +12,7 @@ public class ProfileStatistics {
     private int kills = 0;
     private int deaths = 0;
     private int blocksMined = 0;
+    private int mineCrates = 0;
 
     public ProfileStatistics(UUID uuid) {
         this.uuid = uuid;
@@ -22,15 +23,16 @@ public class ProfileStatistics {
         this.kills = document.getInteger("kills");
         this.deaths = document.getInteger("deaths");
         this.blocksMined = document.getInteger("blocksMined");
+        this.mineCrates = document.getInteger("mineCrates");
     }
 
     public Document toBson() {
         Document document = new Document();
-
         document.append("uuid", uuid.toString());
         document.append("kills", kills);
         document.append("deaths", deaths);
         document.append("blocksMined", blocksMined);
+        document.append("mineCrates", mineCrates);
 
         return document;
     }

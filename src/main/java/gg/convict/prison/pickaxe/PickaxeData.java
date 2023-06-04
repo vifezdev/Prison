@@ -26,6 +26,14 @@ public class PickaxeData {
         applyItemMeta(player, itemStack);
     }
 
+    public boolean hasEnchant(String enchantId) {
+        return enchants.containsKey(enchantId.toLowerCase());
+    }
+
+    public int getEnchantLevel(String enchantId) {
+        return enchants.getOrDefault(enchantId.toLowerCase(), 0);
+    }
+
     public void incrementBlocksMined(int amount) {
         this.blocksMined += amount;
     }
@@ -77,16 +85,16 @@ public class PickaxeData {
     }
 
     public Map<Enchant, Integer> getEnchantments() {
-        Map<Enchant, Integer> enchants = new HashMap<>();
+        Map<Enchant, Integer> result = new HashMap<>();
 
         this.enchants.forEach((key, value) -> {
             Enchant enchant = PickaxeModule.get().getEnchantHandler().getEnchant(key);
 
             if (enchant != null)
-                enchants.put(enchant, value);
+                result.put(enchant, value);
         });
 
-        return enchants;
+        return result;
     }
 
 }

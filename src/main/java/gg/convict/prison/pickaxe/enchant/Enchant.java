@@ -3,10 +3,11 @@ package gg.convict.prison.pickaxe.enchant;
 import gg.convict.prison.pickaxe.PickaxeModule;
 import lombok.Data;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 
 @Data
-public abstract class Enchant {
+public abstract class Enchant implements Listener {
 
     private final String id;
     private final String name;

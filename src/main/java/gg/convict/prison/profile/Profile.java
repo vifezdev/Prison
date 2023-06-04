@@ -17,6 +17,7 @@ public class Profile {
 
     private final UUID uuid;
     private long rank = 1L;
+
     private BigDecimal tokens = new BigDecimal(0);
     private BigDecimal balance = new BigDecimal(0);
 
@@ -52,10 +53,6 @@ public class Profile {
         return document;
     }
 
-    public void save() {
-        ProfileModule.get().getProfileHandler().saveProfile(this, true);
-    }
-
     public void sendMessage(String message) {
         Player player = Bukkit.getPlayer(uuid);
 
@@ -79,6 +76,10 @@ public class Profile {
 
     public void removeBalance(int balance) {
         this.balance = this.balance.subtract(new BigDecimal(balance));
+    }
+
+    public void addMineCrates(int amount) {
+        statistics.setMineCrates(statistics.getMineCrates() + amount);
     }
 
 }

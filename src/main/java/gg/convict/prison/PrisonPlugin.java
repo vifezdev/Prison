@@ -5,6 +5,7 @@ import gg.convict.prison.command.FlyCommand;
 import gg.convict.prison.command.SpawnCommands;
 import gg.convict.prison.config.PrisonConfig;
 import gg.convict.prison.crate.CrateModule;
+import gg.convict.prison.profile.minecrate.MinecrateHandler;
 import gg.convict.prison.mongo.MongoModule;
 import gg.convict.prison.pickaxe.PickaxeModule;
 import gg.convict.prison.position.PositionCommand;
@@ -26,8 +27,8 @@ import org.hydrapvp.libraries.plugin.PluginBootstrap;
 import org.hydrapvp.libraries.tab.TabService;
 import org.hydrapvp.libraries.workload.WorkloadRunnable;
 
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 @Getter
 public class PrisonPlugin extends JavaPlugin {
@@ -35,8 +36,8 @@ public class PrisonPlugin extends JavaPlugin {
     public static final String PREFIX
             = CC.translate("&b&lConvict &7● &f");
 
-    public static ExecutorService EXECUTOR
-            = Executors.newSingleThreadExecutor();
+    public static ScheduledExecutorService EXECUTOR
+            = Executors.newSingleThreadScheduledExecutor();
 
     private PrisonConfig prisonConfig;
     private MongoService mongoService;
