@@ -1,6 +1,7 @@
 package gg.convict.prison;
 
 import gg.convict.prison.banknote.BankNoteModule;
+import gg.convict.prison.broadcast.BroadcastModule;
 import gg.convict.prison.command.FlyCommand;
 import gg.convict.prison.command.SpawnCommands;
 import gg.convict.prison.config.PrisonConfig;
@@ -67,6 +68,7 @@ public class PrisonPlugin extends JavaPlugin {
                 new ProfileModule(),
                 new PickaxeModule(),
                 new BankNoteModule(),
+                new BroadcastModule(),
                 new ScoreboardModule()
         );
 
