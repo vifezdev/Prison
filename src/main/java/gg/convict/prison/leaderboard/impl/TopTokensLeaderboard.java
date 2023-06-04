@@ -17,15 +17,15 @@ public class TopTokensLeaderboard extends AbstractLeaderboard<Long> {
     }
 
     @Override
-    public List<LeaderboardEntry<Long>> fetchData() {
-        List<LeaderboardEntry<Long>> result = new ArrayList<>();
+    public List<LeaderboardEntry> fetchData() {
+        List<LeaderboardEntry> result = new ArrayList<>();
 
         for (Document document : MongoModule.get().getProfiles().find()) {
             if (!document.containsKey("tokens"))
                 continue;
 
             long balance = document.getLong("tokens");
-            result.add(new LeaderboardEntry<>(
+            result.add(new LeaderboardEntry(
                     UUID.fromString(document.getString("uuid")),
                     balance
             ));

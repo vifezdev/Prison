@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public abstract class AbstractLeaderboard<T> {
 
-    private final List<LeaderboardEntry<T>> data = new ArrayList<>();
+    private final List<LeaderboardEntry> data = new ArrayList<>();
     private final Class<T> type;
     private final String display;
 
@@ -28,7 +28,7 @@ public abstract class AbstractLeaderboard<T> {
         }
 
         PrisonPlugin.EXECUTOR.execute(() -> {
-            List<LeaderboardEntry<T>> fetchedData = fetchData();
+            List<LeaderboardEntry> fetchedData = fetchData();
 
             fetchedData.removeIf(entry -> !LeaderboardModule.get().canDisplay(entry.getUuid()));
             fetchedData.sort(algorithm.getComparator());
@@ -44,6 +44,6 @@ public abstract class AbstractLeaderboard<T> {
                 .toLowerCase();
     }
 
-    public abstract List<LeaderboardEntry<T>> fetchData();
+    public abstract List<LeaderboardEntry> fetchData();
 
 }
