@@ -1,14 +1,29 @@
 package gg.convict.prison.warp;
 
+import com.google.common.collect.ImmutableList;
 import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.warp.command.*;
 import lombok.Getter;
 import org.hydrapvp.libraries.plugin.PluginModule;
+
+import java.util.List;
 
 @Getter
 public class WarpModule extends PluginModule {
 
     public WarpModule() {
         super("warps", PrisonPlugin.get(), new WarpConfig());
+    }
+
+    @Override
+    public List<Object> getCommands() {
+        return ImmutableList.of(
+                new WarpCommand(this),
+                new WarpCreateCommand(this),
+                new WarpSetIconCommand(this),
+                new WarpSetColorCommand(this),
+                new WarpSetLocationCommand(this)
+        );
     }
 
     public WarpConfig getConfig() {
