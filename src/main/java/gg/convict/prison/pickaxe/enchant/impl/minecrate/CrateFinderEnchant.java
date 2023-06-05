@@ -12,6 +12,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.metadata.FixedMetadataValue;
+import org.hydrapvp.libraries.utils.CC;
 
 import java.util.concurrent.TimeUnit;
 
@@ -42,6 +43,11 @@ public class CrateFinderEnchant extends Enchant {
         // todo chance
 
         ProfileModule.get().getMinecrateHandler().give(player, 1);
+
+        player.sendMessage(CC.format(
+                "%sYou have found a &bMine Crate&f!",
+                PrisonPlugin.PREFIX
+        ));
 
         player.setMetadata(
                 COOLDOWN_METADATA,
