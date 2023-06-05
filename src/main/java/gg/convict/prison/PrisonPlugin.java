@@ -15,6 +15,7 @@ import gg.convict.prison.profile.ProfileModule;
 import gg.convict.prison.region.RegionModule;
 import gg.convict.prison.scoreboard.ScoreboardModule;
 import gg.convict.prison.tab.PrisonTabAdapter;
+import gg.convict.prison.warp.WarpModule;
 import org.hydrapvp.libraries.utils.CC;
 import lombok.Getter;
 import lombok.SneakyThrows;
@@ -61,6 +62,7 @@ public class PrisonPlugin extends JavaPlugin {
         );
 
         PluginBootstrap.registerModules(
+                new WarpModule(),
                 new MineModule(),
                 new MongoModule(),
                 new CrateModule(),
