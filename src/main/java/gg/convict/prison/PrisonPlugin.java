@@ -7,7 +7,6 @@ import gg.convict.prison.command.SpawnCommands;
 import gg.convict.prison.config.PrisonConfig;
 import gg.convict.prison.crate.CrateModule;
 import gg.convict.prison.leaderboard.LeaderboardModule;
-import gg.convict.prison.profile.minecrate.MinecrateHandler;
 import gg.convict.prison.mongo.MongoModule;
 import gg.convict.prison.pickaxe.PickaxeModule;
 import gg.convict.prison.position.PositionCommand;
@@ -16,7 +15,7 @@ import gg.convict.prison.profile.ProfileModule;
 import gg.convict.prison.region.RegionModule;
 import gg.convict.prison.scoreboard.ScoreboardModule;
 import gg.convict.prison.tab.PrisonTabAdapter;
-import lol.vera.veraspigot.util.CC;
+import org.hydrapvp.libraries.utils.CC;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import org.bukkit.Bukkit;
@@ -83,7 +82,11 @@ public class PrisonPlugin extends JavaPlugin {
     @SneakyThrows
     @Override
     public void onDisable() {
-        configService.saveConfiguration(prisonConfig, PrisonConfig.getFile());
+        configService.saveConfiguration(
+                prisonConfig,
+                PrisonConfig.getFile()
+        );
+
         EXECUTOR.shutdown();
     }
 

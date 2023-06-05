@@ -3,7 +3,7 @@ package gg.convict.prison.crate.command;
 import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.crate.Crate;
 import gg.convict.prison.crate.CrateModule;
-import lol.vera.veraspigot.util.CC;
+import org.hydrapvp.libraries.utils.CC;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;

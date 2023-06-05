@@ -33,18 +33,24 @@ public class GridAddMenu extends Menu {
     @Override
     public Map<Integer, Button> getButtons(Player player) {
         int index = 8;
+        Map<Integer, Button> buttonMap = fillMenu(getSize());
+
+        for (SchematicType type : SchematicType.values())
+            buttonMap.put(index += 1, new GridAddTypeButton(handler.getMineGrid(), type));
+
+        return buttonMap;
+    }
+
+    public static Map<Integer, Button> fillMenu(int size) {
         Map<Integer, Button> buttonMap = new HashMap<>();
 
-        for (int i = 0; i < getSize(); i++) {
+        for (int i = 0; i < size; i++) {
             if (CYAN_BORDER_SLOTS.contains(i))
                 buttonMap.put(i, Button.createPlaceholder(Material.STAINED_GLASS_PANE, (short) 3));
 
             if (BLUE_BORDER_SLOTS.contains(i))
                 buttonMap.put(i, Button.createPlaceholder(Material.STAINED_GLASS_PANE, (short) 11));
         }
-
-        for (SchematicType type : SchematicType.values())
-            buttonMap.put(index += 1, new GridAddTypeButton(handler.getMineGrid(), type));
 
         return buttonMap;
     }

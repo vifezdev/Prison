@@ -28,7 +28,9 @@ public class PrisonTabAdapter implements TabAdapter {
         for (Profile sortedProfile : getSortedProfiles()) {
             Player player = Bukkit.getPlayer(sortedProfile.getUuid());
 
-            if (player == null || !player.isOnline() || (x >= 4 && y >= 19))
+            if (player == null
+                    || !player.isOnline()
+                    || (x >= 4 && y >= 19))
                 continue;
 
             String prefix = sortedProfile.getBestRank().getPrefix();

@@ -3,7 +3,7 @@ package gg.convict.prison.privatemine;
 import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.privatemine.grid.SchematicType;
 import gg.convict.prison.privatemine.util.BorderUtil;
-import lol.vera.veraspigot.util.CC;
+import org.hydrapvp.libraries.utils.CC;
 import lombok.Data;
 import net.minecraft.server.v1_8_R3.WorldServer;
 import org.bukkit.Bukkit;

@@ -4,7 +4,7 @@ import gg.convict.prison.region.Region;
 import gg.convict.prison.region.RegionModule;
 import gg.convict.prison.region.claimwand.ClaimWandHandler;
 import gg.convict.prison.region.claimwand.selection.ClaimSelection;
-import lol.vera.veraspigot.util.CC;
+import org.hydrapvp.libraries.utils.CC;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.command.annotation.Command;

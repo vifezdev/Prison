@@ -3,12 +3,12 @@ package gg.convict.prison.privatemine.grid.prompt;
 import gg.convict.prison.privatemine.grid.MineGrid;
 import gg.convict.prison.privatemine.grid.SchematicType;
 import gg.convict.prison.privatemine.grid.menu.GridAdminMenu;
-import lol.vera.veraspigot.util.CC;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.conversations.ConversationContext;
 import org.bukkit.conversations.Prompt;
 import org.bukkit.conversations.StringPrompt;
 import org.bukkit.entity.Player;
+import org.hydrapvp.libraries.utils.CC;
 
 import java.util.function.Consumer;
 

@@ -1,11 +1,11 @@
 package gg.convict.prison.crate.menu;
 
 import gg.convict.prison.crate.Crate;
-import lol.vera.veraspigot.util.item.ItemBuilder;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.hydrapvp.libraries.builder.ItemBuilder;
 import org.hydrapvp.libraries.menu.Button;
 import org.hydrapvp.libraries.menu.Menu;
 import org.hydrapvp.libraries.utils.CC;

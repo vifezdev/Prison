@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 
 @RequiredArgsConstructor
-public class MinecrateHandler {
+public class MineCrateHandler {
 
     private final PrisonPlugin plugin;
 

@@ -1,9 +1,9 @@
 package gg.convict.prison.region.claimwand;
 
-import lol.vera.veraspigot.util.item.ItemBuilder;
 import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.hydrapvp.libraries.builder.ItemBuilder;
 import org.hydrapvp.libraries.utils.CC;
 
 import java.util.Arrays;
@@ -22,9 +22,9 @@ public class ClaimWand {
     }
 
     public ItemStack toItemStack() {
-        ItemBuilder itemBuilder = ItemBuilder.of(Material.WOOD_HOE);
+        ItemBuilder itemBuilder = new ItemBuilder(Material.WOOD_HOE);
 
-        itemBuilder.setName(CC.GREEN + "Claiming Wand");
+        itemBuilder.setDisplayName(CC.GREEN + "Claiming Wand");
         itemBuilder.setLore(getLore());
 
         return itemBuilder.build();

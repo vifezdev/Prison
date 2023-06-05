@@ -2,7 +2,7 @@ package gg.convict.prison.crate;
 
 import gg.convict.prison.crate.reward.CrateReward;
 import gg.convict.prison.crate.util.IntRange;
-import lol.vera.veraspigot.util.CC;
+import org.hydrapvp.libraries.utils.CC;
 import lombok.Data;
 import org.bukkit.Location;
 import org.bukkit.Material;

@@ -1,6 +1,6 @@
 package gg.convict.prison.broadcast;
 
-import lol.vera.veraspigot.util.CC;
+import org.hydrapvp.libraries.utils.CC;
 import lombok.Data;
 import org.bukkit.Bukkit;
 

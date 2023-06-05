@@ -1,20 +1,26 @@
-package gg.convict.prison.privatemine.menu.create;
+package gg.convict.prison.warp.menu;
 
-import gg.convict.prison.privatemine.grid.SchematicType;
 import gg.convict.prison.privatemine.grid.menu.GridAddMenu;
-import org.bukkit.Material;
+import gg.convict.prison.warp.Warp;
+import gg.convict.prison.warp.WarpModule;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.menu.Button;
 import org.hydrapvp.libraries.menu.Menu;
 
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class MineCreateMenu extends Menu {
+public class WarpsMenu extends Menu {
+
+    private final List<Warp> warps;
+
+    public WarpsMenu() {
+        this.warps = WarpModule.get().getConfig().getWarps();
+    }
 
     @Override
     public String getTitle(Player player) {
-        return "Create Mine";
+        return "Warps";
     }
 
     @Override
@@ -22,15 +28,16 @@ public class MineCreateMenu extends Menu {
         int index = 8;
         Map<Integer, Button> buttonMap = GridAddMenu.fillMenu(getSize());
 
-        for (SchematicType type : SchematicType.values())
-            buttonMap.put(index += 1, new MineCreateButton(type));
+        for (Warp warp : warps)
+            buttonMap.put(index += 1, new WarpButton(warp));
 
         return buttonMap;
     }
 
     @Override
     public int getSize() {
-        return 27;
+        return warps.size() > 9
+                ? 36 : 27;
     }
 
 }

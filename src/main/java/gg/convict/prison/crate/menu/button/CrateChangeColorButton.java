@@ -4,7 +4,6 @@ import gg.convict.prison.crate.Crate;
 import gg.convict.prison.crate.util.DyeUtil;
 import lol.vera.veraspigot.menu.general.ColorMenu;
 import lombok.RequiredArgsConstructor;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;

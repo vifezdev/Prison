@@ -2,15 +2,13 @@ package gg.convict.prison.crate.menu;
 
 import gg.convict.prison.crate.Crate;
 import gg.convict.prison.crate.listener.CrateEditListener;
-import gg.convict.prison.crate.util.CrateUtil;
-import lol.vera.veraspigot.util.item.ItemBuilder;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
+import org.hydrapvp.libraries.builder.ItemBuilder;
 import org.hydrapvp.libraries.menu.Menu;
 import org.hydrapvp.libraries.utils.CC;
 
