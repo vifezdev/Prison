@@ -35,6 +35,7 @@ public abstract class AbstractLeaderboard<T> {
 
             data.clear();
             data.addAll(fetchedData);
+            fetchedData.clear(); // memory
         });
     }
 

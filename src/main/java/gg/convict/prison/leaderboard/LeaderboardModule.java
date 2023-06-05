@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.leaderboard.command.LeaderboardCommand;
+import gg.convict.prison.leaderboard.command.LeaderboardExemptCommands;
 import gg.convict.prison.leaderboard.command.parameter.LeaderboardParameter;
 import gg.convict.prison.leaderboard.impl.*;
 import lombok.Getter;
@@ -40,7 +41,8 @@ public class LeaderboardModule extends PluginModule {
     @Override
     public List<Object> getCommands() {
         return ImmutableList.of(
-                new LeaderboardCommand()
+                new LeaderboardCommand(),
+                new LeaderboardExemptCommands(this)
         );
     }
 
