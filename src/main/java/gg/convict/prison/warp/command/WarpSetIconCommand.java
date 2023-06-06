@@ -34,7 +34,7 @@ public class WarpSetIconCommand {
 
         player.sendMessage(CC.format(
                 "&fSet the icon of &b%s&f to &b%s&f.",
-                warp.getDisplayColor(),
+                warp.getDisplayName(),
                 ItemUtils.getName(itemInHand)
         ));
     }

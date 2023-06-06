@@ -25,7 +25,7 @@ public class WarpsMenu extends Menu {
 
     @Override
     public Map<Integer, Button> getButtons(Player player) {
-        int index = 8;
+        int index = 9;
         Map<Integer, Button> buttonMap = GridAddMenu.fillMenu(getSize());
 
         for (Warp warp : warps)

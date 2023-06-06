@@ -29,7 +29,7 @@ public class WarpSetColorCommand {
 
         sender.sendMessage(CC.format(
                 "&fSet the color of &b%s&f to &r%sthis&f.",
-                previousColor, color));
+                previousColor + warp.getName(), color));
     }
 
 }
