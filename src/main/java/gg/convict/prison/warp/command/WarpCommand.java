@@ -26,6 +26,13 @@ public class WarpCommand {
         }
 
         Warp warp = module.getWarp(warpName);
+        if (warp == null) {
+            player.sendMessage(org.hydrapvp.libraries.utils.CC.format(
+                    "&cA warp with the name &b%s&c does not exist.",
+                    warpName));
+            return;
+        }
+
         if (warp.getLocation() == null) {
             player.sendMessage(CC.format(
                     "%s&cNo location set for warp %s&c.",

@@ -24,6 +24,7 @@ public class WarpModule extends PluginModule {
         return ImmutableList.of(
                 new WarpCommand(this),
                 new WarpCreateCommand(this),
+                new WarpDeleteCommand(this),
                 new WarpSetIconCommand(this),
                 new WarpSetColorCommand(this),
                 new WarpSetLocationCommand(this)

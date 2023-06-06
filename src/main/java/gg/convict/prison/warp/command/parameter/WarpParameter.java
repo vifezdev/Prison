@@ -21,7 +21,7 @@ public class WarpParameter implements ParameterType<Warp> {
 
         if (warp == null)
             sender.sendMessage(CC.format(
-                    "&cA warp with the name \"%s\" does not exist.",
+                    "&cA warp with the name &b%s&c does not exist.",
                     source));
 
         return warp;
