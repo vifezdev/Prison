@@ -1,6 +1,7 @@
 package gg.convict.prison.warp.menu;
 
 import gg.convict.prison.warp.Warp;
+import lol.vera.veraspigot.util.CC;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -23,7 +24,7 @@ public class WarpButton extends Button {
                 .setData(displayItem.getData().getData())
                 .addToLore(
                         "",
-                        "&7&oClick to teleport to this warp."
+                        CC.translate("&7&oClick to teleport to this warp.")
                 ).build();
     }
 
