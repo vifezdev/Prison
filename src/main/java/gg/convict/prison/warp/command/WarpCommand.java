@@ -1,6 +1,7 @@
 package gg.convict.prison.warp.command;
 
 import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.config.PrisonBranding;
 import gg.convict.prison.warp.Warp;
 import gg.convict.prison.warp.WarpModule;
 import gg.convict.prison.warp.menu.WarpsMenu;
@@ -36,7 +37,7 @@ public class WarpCommand {
         if (warp.getLocation() == null) {
             player.sendMessage(CC.format(
                     "%s&cNo location set for warp %s&c.",
-                    PrisonPlugin.PREFIX,
+                    PrisonBranding.get().getPrefix(),
                     warp.getDisplayName()
             ));
             return;
@@ -45,7 +46,7 @@ public class WarpCommand {
         player.teleport(warp.getLocation());
         player.sendMessage(CC.format(
                 "%s&fTeleported to warp %s&f.",
-                PrisonPlugin.PREFIX,
+                PrisonBranding.get().getPrefix(),
                 warp.getDisplayName()
         ));
     }

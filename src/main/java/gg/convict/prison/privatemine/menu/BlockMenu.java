@@ -1,6 +1,7 @@
 package gg.convict.prison.privatemine.menu;
 
 import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.config.PrisonBranding;
 import gg.convict.prison.privatemine.Mine;
 import gg.convict.prison.privatemine.util.MaterialUtil;
 import lombok.RequiredArgsConstructor;
@@ -45,7 +46,7 @@ public class BlockMenu extends Menu {
 
                 player.sendMessage(CC.format(
                         "%sSet the block type of &byour mine&f to &b%s&f.",
-                        PrisonPlugin.PREFIX,
+                        PrisonBranding.get().getPrefix(),
                         MaterialUtil.getName(material)
                 ));
             }));

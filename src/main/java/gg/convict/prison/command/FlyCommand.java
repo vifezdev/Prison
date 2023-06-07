@@ -1,6 +1,6 @@
 package gg.convict.prison.command;
 
-import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.config.PrisonBranding;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.command.annotation.Command;
 import org.hydrapvp.libraries.utils.CC;
@@ -21,7 +21,7 @@ public class FlyCommand {
 
         player.sendMessage(CC.format(
                 "%sYou have %s&f your &bflight&f.",
-                PrisonPlugin.PREFIX,
+                PrisonBranding.get().getPrefix(),
                 player.getAllowFlight() ? "&aenabled" : "&cdisabled"
         ));
     }

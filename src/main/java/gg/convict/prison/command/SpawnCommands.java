@@ -1,6 +1,7 @@
 package gg.convict.prison.command;
 
 import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.config.PrisonBranding;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.command.annotation.Command;
@@ -28,7 +29,7 @@ public class SpawnCommands {
         player.teleport(locationConfig.getLocation());
         player.sendMessage(CC.format(
                 "%sYou have been teleported to &bSpawn&f.",
-                PrisonPlugin.PREFIX
+                PrisonBranding.get().getPrefix()
         ));
     }
 
@@ -44,7 +45,7 @@ public class SpawnCommands {
 
         player.sendMessage(CC.format(
                 "%sYou have set the location of &bSpawn&f.",
-                PrisonPlugin.PREFIX
+                PrisonBranding.get().getPrefix()
         ));
     }
 

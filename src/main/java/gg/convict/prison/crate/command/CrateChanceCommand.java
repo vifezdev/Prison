@@ -1,6 +1,7 @@
 package gg.convict.prison.crate.command;
 
 import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.config.PrisonBranding;
 import org.hydrapvp.libraries.utils.CC;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -25,7 +26,7 @@ public class CrateChanceCommand {
         double chance = ItemNbtUtil.getDouble(itemInHand, "chance");
         player.sendMessage(CC.format(
                 "%sThe chance of this reward is &b%s&f.",
-                PrisonPlugin.PREFIX, chance
+                PrisonBranding.get().getPrefix(), chance
         ));
     }
 
@@ -48,8 +49,8 @@ public class CrateChanceCommand {
 
         ItemNbtUtil.set(itemInHand, "chance", chance);
         player.sendMessage(CC.format(
-                "&fSet the chance of this reward to &b%s&f.",
-                chance
+                "%sSet the chance of this reward to &b%s&f.",
+                PrisonBranding.get().getPrefix(), chance
         ));
     }
 

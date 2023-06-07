@@ -1,6 +1,6 @@
 package gg.convict.prison.crate.listener;
 
-import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.config.PrisonBranding;
 import gg.convict.prison.crate.Crate;
 import gg.convict.prison.crate.CrateModule;
 import lombok.RequiredArgsConstructor;
@@ -44,7 +44,7 @@ public class CratePlaceListener implements Listener {
         module.saveConfig();
         player.sendMessage(CC.format(
                 "%sYou have placed a &b%s&f crate.",
-                PrisonPlugin.PREFIX, crate.getDisplayName()
+                PrisonBranding.get().getPrefix(), crate.getDisplayName()
         ));
     }
 

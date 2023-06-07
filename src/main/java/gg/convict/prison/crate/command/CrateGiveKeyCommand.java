@@ -2,6 +2,7 @@ package gg.convict.prison.crate.command;
 
 import gg.convict.core.util.SenderUtil;
 import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.config.PrisonBranding;
 import gg.convict.prison.crate.Crate;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -25,7 +26,7 @@ public class CrateGiveKeyCommand {
         target.getInventory().addItem(itemStack);
         sender.sendMessage(CC.format(
                 "%sYou have given &b%s &b%s Crate Key%s&f to &b%s&f.",
-                PrisonPlugin.PREFIX, amount,
+                PrisonBranding.get().getPrefix(), amount,
                 crate.getDisplayName(),
                 amount == 1 ? "" : "s",
                 SenderUtil.getName(target)
@@ -33,7 +34,7 @@ public class CrateGiveKeyCommand {
 
         target.sendMessage(CC.format(
                 "%sYou have been given &b%s &b%s Crate Key%s&f.",
-                PrisonPlugin.PREFIX, amount,
+                PrisonBranding.get().getPrefix(), amount,
                 crate.getDisplayName(),
                 amount == 1 ? "" : "s"
         ));

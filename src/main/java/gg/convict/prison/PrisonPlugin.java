@@ -35,9 +35,6 @@ import java.util.concurrent.ScheduledExecutorService;
 @Getter
 public class PrisonPlugin extends JavaPlugin {
 
-    public static final String PREFIX
-            = CC.translate("&b&lConvict &7● &f");
-
     public static ScheduledExecutorService EXECUTOR
             = Executors.newSingleThreadScheduledExecutor();
 

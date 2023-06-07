@@ -1,6 +1,7 @@
 package gg.convict.prison.crate.listener;
 
 import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.config.PrisonBranding;
 import gg.convict.prison.crate.Crate;
 import gg.convict.prison.crate.CrateModule;
 import gg.convict.prison.crate.menu.CratePreviewMenu;
@@ -48,7 +49,7 @@ public class CrateListener implements Listener {
         if (!crate.canOpen(player)) {
             player.sendMessage(CC.format(
                     "%s&cYou are not holding a &b%s&c crate key.",
-                    PrisonPlugin.PREFIX,
+                    PrisonBranding.get().getPrefix(),
                     crate.getDisplayName()
             ));
             return;
@@ -57,7 +58,7 @@ public class CrateListener implements Listener {
         if (crate.getRewards().size() == 0) {
             player.sendMessage(CC.format(
                     "%s&cThere are no rewards setup for this crate.",
-                    PrisonPlugin.PREFIX
+                    PrisonBranding.get().getPrefix()
             ));
             return;
         }

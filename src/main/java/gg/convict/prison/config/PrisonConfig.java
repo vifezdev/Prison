@@ -14,6 +14,7 @@ public class PrisonConfig implements StaticConfiguration {
 
     private LocationConfig spawnLocation = null;
     private final MongoConfig mongoConfig = new MongoConfig();
+    private final PrisonBranding branding = new PrisonBranding();
 
     public static File getFile() {
         return new File(PrisonPlugin.get().getDataFolder(), "config.json");

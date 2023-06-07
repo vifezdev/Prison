@@ -1,6 +1,7 @@
 package gg.convict.prison.privatemine.menu.button;
 
 import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.config.PrisonBranding;
 import gg.convict.prison.privatemine.Mine;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
@@ -48,7 +49,7 @@ public class MineResetButton extends Button {
 
         player.sendMessage(CC.format(
                 "%sYou have reset &byour mine&f.",
-                PrisonPlugin.PREFIX
+                PrisonBranding.get().getPrefix()
         ));
     }
 }

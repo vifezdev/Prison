@@ -1,6 +1,7 @@
 package gg.convict.prison.pickaxe.enchant.impl.minecrate;
 
 import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.config.PrisonBranding;
 import gg.convict.prison.profile.ProfileModule;
 import gg.convict.prison.pickaxe.PickaxeData;
 import gg.convict.prison.pickaxe.PickaxeModule;
@@ -46,7 +47,7 @@ public class CrateFinderEnchant extends Enchant {
 
         player.sendMessage(CC.format(
                 "%sYou have found a &bMine Crate&f!",
-                PrisonPlugin.PREFIX
+                PrisonBranding.get().getPrefix()
         ));
 
         player.setMetadata(

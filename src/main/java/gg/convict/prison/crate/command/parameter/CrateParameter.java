@@ -1,6 +1,6 @@
 package gg.convict.prison.crate.command.parameter;
 
-import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.config.PrisonBranding;
 import gg.convict.prison.crate.Crate;
 import gg.convict.prison.crate.CrateModule;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ public class CrateParameter implements ParameterType<Crate> {
         if (crate == null)
             sender.sendMessage(CC.format(
                     "%s&cA crate with that name does not exist.",
-                    PrisonPlugin.PREFIX
+                    PrisonBranding.get().getPrefix()
             ));
 
         return crate;
