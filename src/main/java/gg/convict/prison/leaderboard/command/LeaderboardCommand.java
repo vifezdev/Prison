@@ -13,16 +13,18 @@ public class LeaderboardCommand {
             playerOnly = true)
     public void execute(Player player, @Param(name = "type") AbstractLeaderboard<?> leaderboard) {
         player.sendMessage(CC.CHAT_BAR);
+
         player.sendMessage(CC.format(
                 "&b&l%s Leaderboards",
                 leaderboard.getDisplay()
         ));
 
-        leaderboard.getData().forEach(entry -> player.sendMessage(CC.format(
+        leaderboard.getData(10).forEach(entry -> player.sendMessage(CC.format(
                 "&7 - &f%s: &b%s",
                 entry.getName(),
                 entry.getValue()
         )));
+
         player.sendMessage(CC.CHAT_BAR);
     }
 

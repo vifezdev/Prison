@@ -39,6 +39,19 @@ public abstract class AbstractLeaderboard<T> {
         });
     }
 
+    public final List<LeaderboardEntry> getData(int limit) {
+        List<LeaderboardEntry> result = new ArrayList<>();
+
+        for (int i = 0; i < limit; i++) {
+            if (data.isEmpty() || data.get(i) == null)
+                continue;
+
+            result.add(data.get(i));
+        }
+
+        return result;
+    }
+
     public final String getId() {
         return CC.strip(display)
                 .replace(" ", "_")
