@@ -29,9 +29,13 @@ public class CrateFinderEnchant extends Enchant {
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         Location blockLocation = event.getBlock().getLocation();
+
+        if (blockLocation == null)
+            return;
+
         Mine mine = MineModule.get().getHandler().getMine(blockLocation);
 
-        if (!mine.getMineCuboid().contains(blockLocation))
+        if (mine == null || !mine.getMineCuboid().contains(blockLocation))
             return;
 
         Player player = event.getPlayer();

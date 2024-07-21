@@ -59,7 +59,7 @@ public class CrateChangeColorButton extends Button {
 
             crate.setColor("&" + chatColor.getChar());
             previousMenu.openMenu(player);
-        }).openInventory(player);
+        }, null).openInventory(player);
     }
 
 }
