@@ -1,23 +1,27 @@
 package gg.convict.prison.banknote.currency;
 
+import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.profile.Profile;
 import gg.convict.prison.profile.ProfileModule;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 
+import java.util.concurrent.Callable;
 import java.util.function.BiConsumer;
+import java.util.function.Supplier;
 
 @Getter
 @RequiredArgsConstructor
 public enum Currency {
 
-    TOKEN("⛃", "&3", "&b", Profile::addTokens),
-    MONEY("$", "&2", "&a", Profile::addBalance);
+    TOKEN(() -> PrisonPlugin.get().getPrisonConfig()
+            .getTokenCurrency(), Profile::addTokens),
 
-    private final String icon;
-    private final String preColor;
-    private final String postColor;
+    MONEY(() -> PrisonPlugin.get().getPrisonConfig()
+            .getMoneyCurrency(), Profile::addBalance);
+
+    private final Supplier<CurrencyData> currencyData;
     private final BiConsumer<Profile, Integer> consumer;
 
     public void give(Player player, int amount) {
@@ -28,7 +32,11 @@ public enum Currency {
     }
 
     public String getColoredIcon() {
-        return preColor + icon + postColor;
+        CurrencyData data = currencyData.get();
+
+        return data.getPreColor()
+                + data.getIcon()
+                + data.getPostColor();
     }
 
     public static Currency getCurrency(String name) {

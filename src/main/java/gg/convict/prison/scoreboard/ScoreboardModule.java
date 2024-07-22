@@ -2,6 +2,9 @@ package gg.convict.prison.scoreboard;
 
 import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.scoreboard.base.PrisonScoreboardAdapter;
+import gg.convict.prison.scoreboard.placeholder.PrisonMinePlaceholderAdapter;
+import gg.convict.prison.scoreboard.placeholder.PrisonPlaceholderAdapter;
+import org.hydrapvp.libraries.placeholder.PlaceholderService;
 import org.hydrapvp.libraries.plugin.PluginModule;
 import org.hydrapvp.libraries.scoreboard.ScoreboardService;
 
@@ -15,8 +18,13 @@ public class ScoreboardModule extends PluginModule {
 
     @Override
     public void onEnable() {
-        new ScoreboardService(getPlugin(),
-                new PrisonScoreboardAdapter(this));
+        PlaceholderService.registerAdapter(new PrisonPlaceholderAdapter());
+        PlaceholderService.registerAdapter(new PrisonMinePlaceholderAdapter());
+
+        new ScoreboardService(
+                getPlugin(),
+                new PrisonScoreboardAdapter(this)
+        );
     }
 
     public ScoreboardConfig getConfig() {

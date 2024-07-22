@@ -1,6 +1,7 @@
 package gg.convict.prison.config;
 
 import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.banknote.currency.CurrencyData;
 import lombok.Getter;
 import lombok.Setter;
 import org.hydrapvp.libraries.configuration.StaticConfiguration;
@@ -15,6 +16,12 @@ public class PrisonConfig implements StaticConfiguration {
     private LocationConfig spawnLocation = null;
     private final MongoConfig mongoConfig = new MongoConfig();
     private final PrisonBranding branding = new PrisonBranding();
+
+    private final CurrencyData tokenCurrency
+            = new CurrencyData("⛃", "&3", "&b");
+
+    private final CurrencyData moneyCurrency
+            = new CurrencyData("$", "&2", "&a");
 
     public static File getFile() {
         return new File(PrisonPlugin.get().getDataFolder(), "config.json");

@@ -2,6 +2,7 @@ package gg.convict.prison.scoreboard.base;
 
 import gg.convict.prison.profile.Profile;
 import gg.convict.prison.profile.ProfileModule;
+import gg.convict.prison.scoreboard.ScoreboardConfig;
 import gg.convict.prison.scoreboard.ScoreboardModule;
 import gg.convict.prison.scoreboard.ScoreboardSection;
 import gg.convict.prison.scoreboard.bar.BarPosition;
@@ -9,6 +10,7 @@ import gg.convict.prison.scoreboard.section.CombatBoardSection;
 import gg.convict.prison.scoreboard.section.MineBoardSection;
 import gg.convict.prison.scoreboard.section.StatsBoardSection;
 import org.bukkit.entity.Player;
+import org.hydrapvp.libraries.placeholder.PlaceholderService;
 import org.hydrapvp.libraries.scoreboard.ScoreboardAdapter;
 import org.hydrapvp.libraries.utils.CC;
 
@@ -28,7 +30,8 @@ public class PrisonScoreboardAdapter implements ScoreboardAdapter {
         this.sections.addAll(Arrays.asList(
                 new StatsBoardSection(),
                 new CombatBoardSection(),
-                new MineBoardSection()));
+                new MineBoardSection()
+        ));
     }
 
     @Override
@@ -44,31 +47,36 @@ public class PrisonScoreboardAdapter implements ScoreboardAdapter {
         if (profile == null)
             return lines;
 
-        lines.add("&a&7&m-------------------");
+        ScoreboardConfig config = module.getConfig();
 
-        sections.forEach(section -> {
-            BarPosition position = section.getBarPosition(player);
-            if (!section.canDisplay(player))
-                return;
+        for (String baseLine : config.getBaseLines()) {
+            if (!baseLine.toLowerCase().contains("{sections}")) {
+                lines.add(PlaceholderService.replace(player, baseLine));
+                continue;
+            }
 
-            if (position == BarPosition.TOP)
-                lines.add(CC.format(
-                        "&%s&7&m-------------------",
-                        sections.indexOf(section)
-                ));
+            sections.forEach(section -> {
+                BarPosition position = section.getBarPosition(player);
+                if (!section.canDisplay(player))
+                    return;
 
-            section.getLines(player, profile, lines);
+                if (position == BarPosition.TOP && config.isSectionsBarsEnabled())
+                    lines.add(CC.format(
+                            "&%s%s",
+                            sections.indexOf(section),
+                            config.getSectionBarText()
+                    ));
 
-            if (position == BarPosition.BOTTOM)
-                lines.add(CC.format(
-                        "&%s&7&m-------------------",
-                        sections.indexOf(section) + "&a"
-                ));
-        });
+                section.getLines(player, profile, lines);
 
-        lines.add("&a");
-        lines.add("&bconvict.gg");
-        lines.add("&b&7&m-------------------");
+                if (position == BarPosition.BOTTOM && config.isSectionsBarsEnabled())
+                    lines.add(CC.format(
+                            "&%s%s",
+                            sections.indexOf(section) + "&a",
+                            config.getSectionBarText()
+                    ));
+            });
+        }
 
         return lines;
     }
