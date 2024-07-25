@@ -1,9 +1,9 @@
 package gg.convict.prison.profile.command;
 
-import gg.convict.core.util.SenderUtil;
 import gg.convict.prison.profile.Profile;
 import gg.convict.prison.profile.ProfileModule;
 import gg.convict.prison.profile.util.MoneyUtil;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.command.annotation.Command;
@@ -17,10 +17,11 @@ public class BalanceCommands {
     @Command(names = {"balance", "eco", "bal"},
             description = "View a player's balance",
             async = true)
-    public void execute(CommandSender sender, @Param(name = "target", defaultValue = "@self") Profile target) {
+    public void execute(CommandSender sender, @Param(name = "target",
+            defaultValue = "@self") Profile target) {
         sender.sendMessage(CC.format(
                 "&fBalance of &b%s&f: &2$&a%s&f.",
-                SenderUtil.getName(target.getUuid()),
+                Bukkit.getOfflinePlayer(target.getUuid()).getName(),
                 MoneyUtil.format(target.getBalance(), 0)));
     }
 
@@ -52,12 +53,12 @@ public class BalanceCommands {
 
         player.sendMessage(CC.format(
                 "&fYou have paid &b%s &2$&a%s&f.",
-                SenderUtil.getName(target.getUuid()),
+                Bukkit.getOfflinePlayer(target.getUuid()).getName(),
                 amount));
 
         target.sendMessage(CC.format(
                 "&fYou have been paid &2$&a%s &fby &b%s&f.",
-                amount, SenderUtil.getName(player)));
+                amount, player.getDisplayName()));
     }
 
     @Command(names = {"balance set", "eco set", "bal set"},
@@ -76,7 +77,7 @@ public class BalanceCommands {
         target.setBalance(new BigDecimal(amount));
         sender.sendMessage(CC.format(
                 "&fSet the balance of &b%s&f to &2$&a%s&f.",
-                SenderUtil.getName(target.getUuid()),
+                Bukkit.getOfflinePlayer(target.getUuid()).getName(),
                 amount));
     }
 

@@ -2,11 +2,11 @@ package gg.convict.prison.warp.command;
 
 import gg.convict.prison.warp.Warp;
 import gg.convict.prison.warp.WarpModule;
-import lol.vera.veraspigot.util.CC;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.command.CommandSender;
 import org.hydrapvp.libraries.command.annotation.Command;
 import org.hydrapvp.libraries.command.annotation.Param;
+import org.hydrapvp.libraries.utils.CC;
 
 @RequiredArgsConstructor
 public class WarpDeleteCommand {

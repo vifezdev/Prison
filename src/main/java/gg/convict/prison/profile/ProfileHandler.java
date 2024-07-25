@@ -7,6 +7,7 @@ import lombok.Data;
 import org.bson.Document;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.mongo.MongoService;
+import org.mozilla.javascript.Callable;
 
 import java.util.Map;
 import java.util.UUID;
@@ -65,7 +66,7 @@ public class ProfileHandler {
 
     public void saveProfile(Profile profile, boolean async) {
         if (async) {
-            PrisonPlugin.EXECUTOR.execute(() -> saveProfile(profile, false));
+            PrisonPlugin.EXECUTOR.submit(new Callable());
             return;
         }
 

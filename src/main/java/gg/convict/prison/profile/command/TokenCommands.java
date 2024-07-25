@@ -1,9 +1,9 @@
 package gg.convict.prison.profile.command;
 
-import gg.convict.core.util.SenderUtil;
 import gg.convict.prison.profile.Profile;
 import gg.convict.prison.profile.ProfileModule;
 import gg.convict.prison.profile.util.MoneyUtil;
+import gg.convict.prison.util.OfflinePlayerUtil;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.command.annotation.Command;
@@ -17,11 +17,14 @@ public class TokenCommands {
     @Command(names = {"tokens", "token"},
             description = "View a player's token balance",
             async = true)
-    public void execute(CommandSender sender, @Param(name = "target", defaultValue = "@self") Profile target) {
-        sender.sendMessage(CC.format(
-                "&fToken Balance of &b%s&f: &3⛃&b%s&f.",
-                SenderUtil.getName(target.getUuid()),
-                MoneyUtil.format(target.getBalance(), 0)));
+    public void execute(CommandSender sender, @Param(name = "target",
+            defaultValue = "@self") Profile target) {
+        OfflinePlayerUtil.getOfflinePlayer(target.getUuid()).thenAccept(offlinePlayer -> {
+            sender.sendMessage(CC.format(
+                    "&fToken Balance of &b%s&f: &3⛃&b%s&f.",
+                    offlinePlayer.getName(),
+                    MoneyUtil.format(target.getBalance(), 0)));
+        });
     }
 
     @Command(names = {"token pay", "tokens pay"},
@@ -50,14 +53,17 @@ public class TokenCommands {
         profile.removeTokens(amount);
         target.addTokens(amount);
 
-        player.sendMessage(CC.format(
-                "&fYou have paid &b%s &3⛃&b%s&f.",
-                SenderUtil.getName(target.getUuid()),
-                amount));
+        OfflinePlayerUtil.getOfflinePlayer(target.getUuid()).thenAccept(offlinePlayer -> {
+            player.sendMessage(CC.format(
+                    "&fYou have paid &3⛃&b%s &fto &b%s&f.",
+                    amount, offlinePlayer.getName()));
+        });
 
         target.sendMessage(CC.format(
                 "&fYou have been paid &3⛃&b%s &fby &b%s&f.",
-                amount, SenderUtil.getName(player)));
+                amount,
+                player.getDisplayName())
+        );
     }
 
     @Command(names = {"token set", "tokens set"},
@@ -74,10 +80,13 @@ public class TokenCommands {
         }
 
         target.setTokens(new BigDecimal(amount));
-        sender.sendMessage(CC.format(
-                "&fSet the tokens of &b%s&f to &3⛃&b%s&f.",
-                SenderUtil.getName(target.getUuid()),
-                amount));
+        OfflinePlayerUtil.getOfflinePlayer(target.getUuid()).thenAccept(offlinePlayer -> {
+            sender.sendMessage(CC.format(
+                    "&fYou have set the token balance of &b%s &fto &3⛃&b%s&f.",
+                    offlinePlayer.getName(),
+                    amount)
+            );
+        });
     }
 
 }

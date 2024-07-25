@@ -1,7 +1,5 @@
 package gg.convict.prison.crate.command;
 
-import gg.convict.core.util.SenderUtil;
-import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.config.PrisonBranding;
 import gg.convict.prison.crate.Crate;
 import org.bukkit.command.CommandSender;
@@ -29,7 +27,7 @@ public class CrateGiveKeyCommand {
                 PrisonBranding.get().getPrefix(), amount,
                 crate.getDisplayName(),
                 amount == 1 ? "" : "s",
-                SenderUtil.getName(target)
+                target.getDisplayName()
         ));
 
         target.sendMessage(CC.format(

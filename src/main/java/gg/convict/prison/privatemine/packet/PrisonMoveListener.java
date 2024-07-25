@@ -2,21 +2,27 @@ package gg.convict.prison.privatemine.packet;
 
 import gg.convict.prison.privatemine.Mine;
 import gg.convict.prison.privatemine.MineModule;
-import lol.vera.spigot.packet.MovementHandler;
 import lombok.RequiredArgsConstructor;
-import net.minecraft.server.v1_8_R3.PacketPlayInFlying;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffectType;
 
 @RequiredArgsConstructor
-public class PrisonPacketHandler implements MovementHandler {
+public class PrisonMoveListener implements Listener {
 
     private final MineModule module;
 
-    @Override
-    public void handleMove(Player player, Location to, Location from, Object packet) {
+    @EventHandler
+    public void onMove(PlayerMoveEvent event) {
+
+        Player player = event.getPlayer();
+        Location from = event.getFrom();
+        Location to = event.getTo();
+
         if (from.getX() == to.getX()
                 && from.getZ() == to.getZ())
             return;

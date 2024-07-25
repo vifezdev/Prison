@@ -1,9 +1,8 @@
 package gg.convict.prison.banknote.menu;
 
-import gg.convict.core.util.SenderUtil;
 import gg.convict.prison.banknote.BankNote;
 import lombok.RequiredArgsConstructor;
-import org.bukkit.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -59,11 +58,11 @@ public class BankNoteViewMenu extends Menu {
             UUID issuedBy = bankNote.getIssuedBy();
             lore.add(CC.format(
                     "&fIssued By: &b%s",
-                    issuedBy == null ? "&4Console" : SenderUtil.getName(issuedBy)));
+                    issuedBy == null ? "&4Console" : Bukkit.getOfflinePlayer(issuedBy).getName()));
 
             lore.add(CC.format(
                     "&fIssued To: &b%s",
-                    SenderUtil.getName(bankNote.getIssuedTo())));
+                    Bukkit.getOfflinePlayer(bankNote.getIssuedTo()).getName()));
 
             lore.add(CC.format(
                     "&fIssued On: &b%s",
@@ -77,7 +76,7 @@ public class BankNoteViewMenu extends Menu {
                 lore.add(MENU_BAR);
                 lore.add(CC.format(
                         "&fRedeemed By: &b%s",
-                        SenderUtil.getName(bankNote.getRedeemedBy())));
+                        Bukkit.getOfflinePlayer(bankNote.getRedeemedBy()).getName()));
 
                 lore.add(CC.format(
                         "&fRedeemed On: &b%s",

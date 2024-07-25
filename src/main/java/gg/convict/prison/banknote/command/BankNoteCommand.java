@@ -1,6 +1,5 @@
 package gg.convict.prison.banknote.command;
 
-import gg.convict.core.util.SenderUtil;
 import gg.convict.prison.banknote.BankNote;
 import gg.convict.prison.banknote.BankNoteModule;
 import gg.convict.prison.banknote.currency.Currency;
@@ -35,14 +34,14 @@ public class BankNoteCommand {
 
         sender.sendMessage(CC.format(
                 "&fYou have given &b%s&f a &b%s&f bank note.",
-                SenderUtil.getName(target),
+                target.getDisplayName(),
                 bankNote.getValue()
         ));
 
         target.sendMessage(CC.format(
                 "&fYou have been given a &b%s&f bank note by &b%s&f.",
                 bankNote.getValue(),
-                SenderUtil.getName(sender)
+                sender.getName()
         ));
     }
 

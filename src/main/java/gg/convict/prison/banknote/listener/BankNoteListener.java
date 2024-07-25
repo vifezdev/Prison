@@ -1,6 +1,5 @@
 package gg.convict.prison.banknote.listener;
 
-import gg.convict.core.util.SenderUtil;
 import gg.convict.prison.banknote.BankNote;
 import gg.convict.prison.banknote.BankNoteModule;
 import gg.convict.prison.profile.util.MoneyUtil;
@@ -40,7 +39,7 @@ public class BankNoteListener implements Listener {
             CC.send(
                     "&4[ANTI-DUPE] &b%s&f has attempted to redeem a used bank note worth &b%s&f.",
                     "core.admin",
-                    SenderUtil.getName(player),
+                    player.getDisplayName(),
                     bankNote.getValue());
             return;
         }
@@ -48,7 +47,7 @@ public class BankNoteListener implements Listener {
         if (bankNote.getAmount() >= module.getHandler().getAnnounceThreshold()) {
             ChatMessage message = new ChatMessage(CC.format(
                     "&3[Bank Notes] &b%s&f redeemed a bank note worth &b%s%s&f.",
-                    SenderUtil.getName(player),
+                    player.getDisplayName(),
                     bankNote.getCurrency().getColoredIcon(),
                     MoneyUtil.format(BigDecimal.valueOf(bankNote.getAmount()), 0)
             ));

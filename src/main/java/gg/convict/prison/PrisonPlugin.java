@@ -13,7 +13,6 @@ import gg.convict.prison.privatemine.MineModule;
 import gg.convict.prison.profile.ProfileModule;
 import gg.convict.prison.region.RegionModule;
 import gg.convict.prison.scoreboard.ScoreboardModule;
-import gg.convict.prison.tab.PrisonTabAdapter;
 import gg.convict.prison.warp.WarpModule;
 import lombok.*;
 import org.bukkit.Bukkit;
@@ -22,7 +21,6 @@ import org.hydrapvp.libraries.command.CommandService;
 import org.hydrapvp.libraries.configuration.*;
 import org.hydrapvp.libraries.mongo.MongoService;
 import org.hydrapvp.libraries.plugin.PluginBootstrap;
-import org.hydrapvp.libraries.tab.TabService;
 import org.hydrapvp.libraries.workload.WorkloadRunnable;
 
 import java.util.concurrent.*;
@@ -66,8 +64,6 @@ public class PrisonPlugin extends JavaPlugin {
                 new ScoreboardModule(),
                 new LeaderboardModule()
         );
-
-        new TabService(this, new PrisonTabAdapter());
 
         Bukkit.getScheduler().runTaskTimer(this,
                 this.workloadRunnable = new WorkloadRunnable(), 1L, 1L);

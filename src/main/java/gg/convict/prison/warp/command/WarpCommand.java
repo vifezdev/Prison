@@ -5,11 +5,11 @@ import gg.convict.prison.config.PrisonBranding;
 import gg.convict.prison.warp.Warp;
 import gg.convict.prison.warp.WarpModule;
 import gg.convict.prison.warp.menu.WarpsMenu;
-import lol.vera.veraspigot.util.CC;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 import org.hydrapvp.libraries.command.annotation.Command;
 import org.hydrapvp.libraries.command.annotation.Param;
+import org.hydrapvp.libraries.utils.CC;
 
 @RequiredArgsConstructor
 public class WarpCommand {
