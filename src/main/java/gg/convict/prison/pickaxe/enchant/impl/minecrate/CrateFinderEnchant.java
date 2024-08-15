@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.metadata.FixedMetadataValue;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.CC;
 
 import java.util.concurrent.TimeUnit;
 

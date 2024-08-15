@@ -8,10 +8,10 @@ import gg.convict.prison.privatemine.util.list.MineList;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.menu.Button;
-import org.hydrapvp.libraries.menu.Menu;
-import org.hydrapvp.libraries.menu.fill.IMenuFiller;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.menu.Button;
+import gg.convict.prison.util.menu.Menu;
+import gg.convict.prison.util.menu.fill.IMenuFiller;
+import gg.convict.prison.util.CC;
 
 import java.util.HashMap;
 import java.util.Map;

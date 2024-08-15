@@ -3,8 +3,8 @@ package gg.convict.prison.region.claimwand;
 import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.builder.ItemBuilder;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.ItemBuilder;
+import gg.convict.prison.util.CC;
 
 import java.util.Arrays;
 import java.util.List;

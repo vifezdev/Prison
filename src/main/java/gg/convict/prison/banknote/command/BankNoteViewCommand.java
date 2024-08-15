@@ -3,14 +3,13 @@ package gg.convict.prison.banknote.command;
 import gg.convict.prison.banknote.BankNote;
 import gg.convict.prison.banknote.BankNoteModule;
 import gg.convict.prison.banknote.menu.BankNoteViewMenu;
+import gg.convict.prison.util.uuid.PlainUUID;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.command.annotation.Command;
-import org.hydrapvp.libraries.command.annotation.Param;
-import org.hydrapvp.libraries.utils.CC;
-import org.hydrapvp.libraries.uuid.PlainUUID;
-
+import gg.convict.prison.util.command.annotation.Command;
+import gg.convict.prison.util.command.annotation.Param;
+import gg.convict.prison.util.CC;
 import java.util.UUID;
 
 @RequiredArgsConstructor

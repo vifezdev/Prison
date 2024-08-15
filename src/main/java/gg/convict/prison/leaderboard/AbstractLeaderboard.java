@@ -6,7 +6,7 @@ import gg.convict.prison.leaderboard.sort.SortAlgorithm;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.CC;
 
 import java.util.ArrayList;
 import java.util.List;

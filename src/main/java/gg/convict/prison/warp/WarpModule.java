@@ -3,11 +3,11 @@ package gg.convict.prison.warp;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import gg.convict.prison.PrisonPlugin;
+import gg.convict.prison.util.plugin.PluginModule;
 import gg.convict.prison.warp.command.*;
 import gg.convict.prison.warp.command.parameter.WarpParameter;
 import lombok.Getter;
-import org.hydrapvp.libraries.command.parameter.ParameterType;
-import org.hydrapvp.libraries.plugin.PluginModule;
+import gg.convict.prison.util.command.parameter.ParameterType;
 
 import java.util.List;
 import java.util.Map;

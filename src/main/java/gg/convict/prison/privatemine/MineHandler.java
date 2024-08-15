@@ -3,14 +3,14 @@ package gg.convict.prison.privatemine;
 import gg.convict.prison.privatemine.generator.VoidMineGenerator;
 import gg.convict.prison.privatemine.grid.MineGrid;
 import gg.convict.prison.privatemine.grid.SchematicType;
+import gg.convict.prison.util.CC;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.configuration.StaticConfiguration;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.configuration.StaticConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;

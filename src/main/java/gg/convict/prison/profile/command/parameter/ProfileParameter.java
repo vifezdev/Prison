@@ -6,10 +6,10 @@ import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.command.parameter.ParameterType;
-import org.hydrapvp.libraries.command.parameter.defaults.PlayerParameter;
-import org.hydrapvp.libraries.utils.CC;
-import org.hydrapvp.libraries.uuid.UUIDCache;
+import gg.convict.prison.util.command.parameter.ParameterType;
+import gg.convict.prison.util.command.parameter.defaults.PlayerParameter;
+import gg.convict.prison.util.CC;
+import gg.convict.prison.util.uuid.UUIDCache;
 
 import java.util.List;
 import java.util.UUID;

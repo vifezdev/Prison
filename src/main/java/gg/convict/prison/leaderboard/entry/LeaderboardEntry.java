@@ -1,7 +1,7 @@
 package gg.convict.prison.leaderboard.entry;
 
 import lombok.Data;
-import org.hydrapvp.libraries.uuid.UUIDCache;
+import gg.convict.prison.util.uuid.UUIDCache;
 
 import java.util.UUID;
 

@@ -4,7 +4,7 @@ import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.builder.ItemBuilder;
+import gg.convict.prison.util.ItemBuilder;
 
 @Getter
 public enum SchematicType {

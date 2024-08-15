@@ -6,8 +6,8 @@ import gg.convict.prison.privatemine.menu.MineManageMenu;
 import gg.convict.prison.privatemine.menu.create.MineCreateMenu;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.command.annotation.Command;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.command.annotation.Command;
+import gg.convict.prison.util.CC;
 
 @RequiredArgsConstructor
 public class PrivateMineCommand {

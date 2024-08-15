@@ -2,8 +2,8 @@ package gg.convict.prison.command;
 
 import gg.convict.prison.config.PrisonBranding;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.command.annotation.Command;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.command.annotation.Command;
+import gg.convict.prison.util.CC;
 
 public class FlyCommand {
 

@@ -3,7 +3,7 @@ package gg.convict.prison.broadcast;
 import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.broadcast.runnable.BroadcastRunnable;
 import org.bukkit.Bukkit;
-import org.hydrapvp.libraries.plugin.PluginModule;
+import gg.convict.prison.util.plugin.PluginModule;
 
 public class BroadcastModule extends PluginModule {
 

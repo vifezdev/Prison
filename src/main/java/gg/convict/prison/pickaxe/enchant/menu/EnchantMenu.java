@@ -1,8 +1,8 @@
 package gg.convict.prison.pickaxe.enchant.menu;
 
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.menu.Button;
-import org.hydrapvp.libraries.menu.Menu;
+import gg.convict.prison.util.menu.Button;
+import gg.convict.prison.util.menu.Menu;
 
 import java.util.HashMap;
 import java.util.Map;

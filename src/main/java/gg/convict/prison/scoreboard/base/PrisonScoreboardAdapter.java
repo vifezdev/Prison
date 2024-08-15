@@ -9,10 +9,10 @@ import gg.convict.prison.scoreboard.bar.BarPosition;
 import gg.convict.prison.scoreboard.section.CombatBoardSection;
 import gg.convict.prison.scoreboard.section.MineBoardSection;
 import gg.convict.prison.scoreboard.section.StatsBoardSection;
+import gg.convict.prison.util.placeholder.PlaceholderService;
+import gg.convict.prison.util.scoreboard.ScoreboardAdapter;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.placeholder.PlaceholderService;
-import org.hydrapvp.libraries.scoreboard.ScoreboardAdapter;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.CC;
 
 import java.util.ArrayList;
 import java.util.Arrays;

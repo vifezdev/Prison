@@ -6,9 +6,9 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.builder.ItemBuilder;
-import org.hydrapvp.libraries.menu.Button;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.ItemBuilder;
+import gg.convict.prison.util.menu.Button;
+import gg.convict.prison.util.CC;
 
 import java.util.ArrayList;
 import java.util.List;

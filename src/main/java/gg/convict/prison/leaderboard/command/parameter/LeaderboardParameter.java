@@ -3,8 +3,8 @@ package gg.convict.prison.leaderboard.command.parameter;
 import gg.convict.prison.leaderboard.AbstractLeaderboard;
 import gg.convict.prison.leaderboard.LeaderboardModule;
 import org.bukkit.command.CommandSender;
-import org.hydrapvp.libraries.command.parameter.ParameterType;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.command.parameter.ParameterType;
+import gg.convict.prison.util.CC;
 
 import java.util.ArrayList;
 import java.util.List;

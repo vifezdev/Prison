@@ -6,7 +6,7 @@ import gg.convict.prison.privatemine.MineModule;
 import gg.convict.prison.privatemine.grid.runnable.MineRunnable;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.command.annotation.Command;
+import gg.convict.prison.util.command.annotation.Command;
 
 public class GridTeleportCommand {
 

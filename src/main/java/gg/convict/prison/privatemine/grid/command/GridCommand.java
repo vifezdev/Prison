@@ -2,7 +2,7 @@ package gg.convict.prison.privatemine.grid.command;
 
 import gg.convict.prison.privatemine.grid.menu.GridAdminMenu;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.command.annotation.Command;
+import gg.convict.prison.util.command.annotation.Command;
 
 public class GridCommand {
 

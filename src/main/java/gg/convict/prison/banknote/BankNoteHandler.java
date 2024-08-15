@@ -2,7 +2,7 @@ package gg.convict.prison.banknote;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hydrapvp.libraries.configuration.StaticConfiguration;
+import gg.convict.prison.util.configuration.StaticConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;

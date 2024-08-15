@@ -16,8 +16,8 @@ import org.bukkit.*;
 import org.bukkit.Location;
 import org.bukkit.block.*;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
-import org.hydrapvp.libraries.cuboid.Cuboid;
+import gg.convict.prison.util.configuration.defaults.LocationConfig;
+import gg.convict.prison.util.cuboid.Cuboid;
 
 import java.io.File;
 

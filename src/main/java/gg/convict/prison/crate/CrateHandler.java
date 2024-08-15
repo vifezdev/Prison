@@ -3,7 +3,7 @@ package gg.convict.prison.crate;
 import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.block.Chest;
-import org.hydrapvp.libraries.configuration.StaticConfiguration;
+import gg.convict.prison.util.configuration.StaticConfiguration;
 
 import java.util.HashMap;
 import java.util.Map;

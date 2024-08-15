@@ -7,9 +7,9 @@ import gg.convict.prison.warp.WarpModule;
 import gg.convict.prison.warp.menu.WarpsMenu;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.command.annotation.Command;
-import org.hydrapvp.libraries.command.annotation.Param;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.command.annotation.Command;
+import gg.convict.prison.util.command.annotation.Param;
+import gg.convict.prison.util.CC;
 
 @RequiredArgsConstructor
 public class WarpCommand {
@@ -28,7 +28,7 @@ public class WarpCommand {
 
         Warp warp = module.getWarp(warpName);
         if (warp == null) {
-            player.sendMessage(org.hydrapvp.libraries.utils.CC.format(
+            player.sendMessage(gg.convict.prison.util.CC.format(
                     "&cA warp with the name &b%s&c does not exist.",
                     warpName));
             return;

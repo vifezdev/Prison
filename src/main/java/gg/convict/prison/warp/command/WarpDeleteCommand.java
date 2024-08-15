@@ -4,9 +4,9 @@ import gg.convict.prison.warp.Warp;
 import gg.convict.prison.warp.WarpModule;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.command.CommandSender;
-import org.hydrapvp.libraries.command.annotation.Command;
-import org.hydrapvp.libraries.command.annotation.Param;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.command.annotation.Command;
+import gg.convict.prison.util.command.annotation.Param;
+import gg.convict.prison.util.CC;
 
 @RequiredArgsConstructor
 public class WarpDeleteCommand {

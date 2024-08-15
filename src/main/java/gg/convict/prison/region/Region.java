@@ -2,9 +2,9 @@ package gg.convict.prison.region;
 
 import gg.convict.prison.region.config.RegionConfig;
 import gg.convict.prison.region.flag.RegionFlag;
+import gg.convict.prison.util.cuboid.Cuboid;
 import lombok.Data;
 import org.bukkit.ChatColor;
-import org.hydrapvp.libraries.cuboid.Cuboid;
 
 import java.util.*;
 

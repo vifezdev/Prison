@@ -15,7 +15,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.CC;
 
 @RequiredArgsConstructor
 public class CrateListener implements Listener {

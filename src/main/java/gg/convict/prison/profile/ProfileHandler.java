@@ -3,11 +3,10 @@ package gg.convict.prison.profile;
 import com.mongodb.client.model.Filters;
 import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.mongo.MongoModule;
+import gg.convict.prison.util.mongo.MongoService;
 import lombok.Data;
 import org.bson.Document;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.mongo.MongoService;
-import org.mozilla.javascript.Callable;
 
 import java.util.Map;
 import java.util.UUID;
@@ -66,7 +65,7 @@ public class ProfileHandler {
 
     public void saveProfile(Profile profile, boolean async) {
         if (async) {
-            PrisonPlugin.EXECUTOR.submit(new Callable());
+            PrisonPlugin.EXECUTOR.execute(() -> saveProfile(profile, false));
             return;
         }
 

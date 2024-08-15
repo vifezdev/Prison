@@ -15,8 +15,8 @@ import gg.convict.prison.region.listener.RegionListeners;
 import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.event.Listener;
-import org.hydrapvp.libraries.command.parameter.ParameterType;
-import org.hydrapvp.libraries.plugin.PluginModule;
+import gg.convict.prison.util.command.parameter.ParameterType;
+import gg.convict.prison.util.plugin.PluginModule;
 
 import java.util.List;
 import java.util.Map;

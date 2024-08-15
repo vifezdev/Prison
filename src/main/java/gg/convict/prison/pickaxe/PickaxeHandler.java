@@ -3,8 +3,8 @@ package gg.convict.prison.pickaxe;
 import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.configuration.StaticConfiguration;
-import org.hydrapvp.libraries.utils.ItemNbtUtil;
+import gg.convict.prison.util.configuration.StaticConfiguration;
+import gg.convict.prison.util.ItemNbtUtil;
 
 import java.util.HashMap;
 import java.util.Map;

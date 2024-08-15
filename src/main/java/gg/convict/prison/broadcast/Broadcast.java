@@ -1,6 +1,6 @@
 package gg.convict.prison.broadcast;
 
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.CC;
 import lombok.Data;
 import org.bukkit.Bukkit;
 

@@ -4,7 +4,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import gg.convict.prison.PrisonPlugin;
 import org.bson.Document;
-import org.hydrapvp.libraries.plugin.PluginModule;
+import gg.convict.prison.util.plugin.PluginModule;
 
 import java.util.UUID;
 

@@ -10,9 +10,8 @@ import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.LibrariesBukkit;
-import org.hydrapvp.libraries.configuration.ConfigurationService;
-import org.hydrapvp.libraries.plugin.PluginModule;
+import gg.convict.prison.util.configuration.ConfigurationService;
+import gg.convict.prison.util.plugin.PluginModule;
 
 import java.io.File;
 import java.util.List;
@@ -28,7 +27,7 @@ public class PickaxeModule extends PluginModule {
     public PickaxeModule() {
         super("pickaxe", PrisonPlugin.get(), new PickaxeHandler());
 
-        this.configurationService = LibrariesBukkit.getInstance().getConfigurationService();
+        this.configurationService = PrisonPlugin.get().getConfigService();
     }
 
     @Override

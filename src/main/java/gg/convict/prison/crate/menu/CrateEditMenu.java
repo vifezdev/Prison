@@ -5,8 +5,8 @@ import gg.convict.prison.crate.menu.button.*;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.menu.Button;
-import org.hydrapvp.libraries.menu.Menu;
+import gg.convict.prison.util.menu.Button;
+import gg.convict.prison.util.menu.Menu;
 
 import java.util.ArrayList;
 import java.util.HashMap;

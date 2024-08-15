@@ -8,8 +8,8 @@ import gg.convict.prison.leaderboard.command.LeaderboardExemptCommands;
 import gg.convict.prison.leaderboard.command.parameter.LeaderboardParameter;
 import gg.convict.prison.leaderboard.impl.*;
 import lombok.Getter;
-import org.hydrapvp.libraries.command.parameter.ParameterType;
-import org.hydrapvp.libraries.plugin.PluginModule;
+import gg.convict.prison.util.command.parameter.ParameterType;
+import gg.convict.prison.util.plugin.PluginModule;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;

@@ -11,9 +11,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
-import org.hydrapvp.libraries.configuration.defaults.SimpleLocationConfig;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.configuration.defaults.LocationConfig;
+import gg.convict.prison.util.configuration.defaults.SimpleLocationConfig;
+import gg.convict.prison.util.CC;
 
 @RequiredArgsConstructor
 public class CratePlaceListener implements Listener {

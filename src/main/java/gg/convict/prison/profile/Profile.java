@@ -6,7 +6,7 @@ import lombok.Setter;
 import org.bson.Document;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.CC;
 
 import java.math.BigDecimal;
 import java.util.UUID;

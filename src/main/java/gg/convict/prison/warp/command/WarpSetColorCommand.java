@@ -7,9 +7,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.command.annotation.Command;
-import org.hydrapvp.libraries.command.annotation.Param;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.command.annotation.Command;
+import gg.convict.prison.util.command.annotation.Param;
+import gg.convict.prison.util.CC;
 
 @RequiredArgsConstructor
 public class WarpSetColorCommand {

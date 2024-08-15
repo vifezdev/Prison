@@ -4,9 +4,9 @@ import gg.convict.prison.PrisonPlugin;
 import gg.convict.prison.scoreboard.base.PrisonScoreboardAdapter;
 import gg.convict.prison.scoreboard.placeholder.PrisonMinePlaceholderAdapter;
 import gg.convict.prison.scoreboard.placeholder.PrisonPlaceholderAdapter;
-import org.hydrapvp.libraries.placeholder.PlaceholderService;
-import org.hydrapvp.libraries.plugin.PluginModule;
-import org.hydrapvp.libraries.scoreboard.ScoreboardService;
+import gg.convict.prison.util.placeholder.PlaceholderService;
+import gg.convict.prison.util.plugin.PluginModule;
+import gg.convict.prison.util.scoreboard.ScoreboardService;
 
 public class ScoreboardModule extends PluginModule {
 

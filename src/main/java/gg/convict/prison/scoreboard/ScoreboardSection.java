@@ -3,7 +3,7 @@ package gg.convict.prison.scoreboard;
 import gg.convict.prison.profile.Profile;
 import gg.convict.prison.scoreboard.bar.BarPosition;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.plugin.PluginModule;
+import gg.convict.prison.util.plugin.PluginModule;
 
 import java.util.List;
 

@@ -6,8 +6,8 @@ import gg.convict.prison.crate.command.*;
 import gg.convict.prison.crate.command.parameter.*;
 import gg.convict.prison.crate.listener.*;
 import org.bukkit.event.Listener;
-import org.hydrapvp.libraries.command.parameter.ParameterType;
-import org.hydrapvp.libraries.plugin.PluginModule;
+import gg.convict.prison.util.command.parameter.ParameterType;
+import gg.convict.prison.util.plugin.PluginModule;
 
 import java.text.DecimalFormat;
 import java.util.List;

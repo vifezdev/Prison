@@ -2,10 +2,10 @@ package gg.convict.prison.scoreboard.placeholder;
 
 import gg.convict.prison.privatemine.Mine;
 import gg.convict.prison.privatemine.MineModule;
+import gg.convict.prison.util.placeholder.adapter.PlaceholderAdapter;
+import gg.convict.prison.util.uuid.UUIDCache;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.placeholder.adapter.PlaceholderAdapter;
-import org.hydrapvp.libraries.uuid.UUIDCache;
 
 public class PrisonMinePlaceholderAdapter implements PlaceholderAdapter {
 

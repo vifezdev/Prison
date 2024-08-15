@@ -14,7 +14,7 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.configuration.defaults.LocationConfig;
+import gg.convict.prison.util.configuration.defaults.LocationConfig;
 
 @RequiredArgsConstructor
 public class ProfileListener implements Listener {

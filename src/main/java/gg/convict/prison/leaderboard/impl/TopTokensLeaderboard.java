@@ -4,7 +4,7 @@ import gg.convict.prison.leaderboard.AbstractLeaderboard;
 import gg.convict.prison.leaderboard.entry.LeaderboardEntry;
 import gg.convict.prison.mongo.MongoModule;
 import org.bson.Document;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.CC;
 
 import java.util.ArrayList;
 import java.util.List;

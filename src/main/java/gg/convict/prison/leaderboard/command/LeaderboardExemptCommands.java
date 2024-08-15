@@ -3,10 +3,10 @@ package gg.convict.prison.leaderboard.command;
 import gg.convict.prison.leaderboard.LeaderboardModule;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.command.CommandSender;
-import org.hydrapvp.libraries.command.annotation.Command;
-import org.hydrapvp.libraries.command.annotation.Param;
-import org.hydrapvp.libraries.utils.CC;
-import org.hydrapvp.libraries.uuid.UUIDCache;
+import gg.convict.prison.util.command.annotation.Command;
+import gg.convict.prison.util.command.annotation.Param;
+import gg.convict.prison.util.CC;
+import gg.convict.prison.util.uuid.UUIDCache;
 
 import java.util.List;
 import java.util.UUID;

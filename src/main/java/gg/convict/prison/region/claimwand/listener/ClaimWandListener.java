@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.CC;
 
 @RequiredArgsConstructor
 public class ClaimWandListener implements Listener {

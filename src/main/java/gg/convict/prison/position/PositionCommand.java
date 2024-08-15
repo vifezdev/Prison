@@ -7,11 +7,11 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.command.annotation.Command;
-import org.hydrapvp.libraries.command.annotation.Param;
-import org.hydrapvp.libraries.cuboid.Cuboid;
-import org.hydrapvp.libraries.utils.CC;
-import org.hydrapvp.libraries.workload.impl.BlockPlaceWorkload;
+import gg.convict.prison.util.command.annotation.Command;
+import gg.convict.prison.util.command.annotation.Param;
+import gg.convict.prison.util.cuboid.Cuboid;
+import gg.convict.prison.util.CC;
+import gg.convict.prison.util.workload.impl.BlockPlaceWorkload;
 
 import java.util.HashMap;
 import java.util.Map;

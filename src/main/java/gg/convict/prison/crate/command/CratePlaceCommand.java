@@ -3,13 +3,13 @@ package gg.convict.prison.crate.command;
 import gg.convict.prison.config.PrisonBranding;
 import gg.convict.prison.crate.Crate;
 import gg.convict.prison.crate.CrateModule;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.CC;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.builder.ItemBuilder;
-import org.hydrapvp.libraries.command.annotation.Command;
-import org.hydrapvp.libraries.command.annotation.Param;
+import gg.convict.prison.util.ItemBuilder;
+import gg.convict.prison.util.command.annotation.Command;
+import gg.convict.prison.util.command.annotation.Param;
 
 @RequiredArgsConstructor
 public class CratePlaceCommand {

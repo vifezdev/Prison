@@ -4,8 +4,8 @@ import gg.convict.prison.warp.Warp;
 import gg.convict.prison.warp.WarpModule;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.command.CommandSender;
-import org.hydrapvp.libraries.command.parameter.ParameterType;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.command.parameter.ParameterType;
+import gg.convict.prison.util.CC;
 
 import java.util.ArrayList;
 import java.util.List;

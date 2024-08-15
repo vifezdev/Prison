@@ -4,7 +4,7 @@ import gg.convict.prison.profile.Profile;
 import gg.convict.prison.profile.util.MoneyUtil;
 import gg.convict.prison.scoreboard.ScoreboardSection;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.placeholder.PlaceholderService;
+import gg.convict.prison.util.placeholder.PlaceholderService;
 
 import java.util.List;
 

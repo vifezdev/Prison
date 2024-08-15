@@ -2,7 +2,7 @@ package gg.convict.prison.pickaxe.enchant;
 
 import gg.convict.prison.pickaxe.enchant.data.EnchantData;
 import lombok.Getter;
-import org.hydrapvp.libraries.configuration.StaticConfiguration;
+import gg.convict.prison.util.configuration.StaticConfiguration;
 
 import java.util.HashMap;
 import java.util.Map;

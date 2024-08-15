@@ -10,7 +10,7 @@ import gg.convict.prison.privatemine.listener.MineListener;
 import gg.convict.prison.privatemine.packet.PrisonMoveListener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
-import org.hydrapvp.libraries.plugin.PluginModule;
+import gg.convict.prison.util.plugin.PluginModule;
 
 import java.util.List;
 

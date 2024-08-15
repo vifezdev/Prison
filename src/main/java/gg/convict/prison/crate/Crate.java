@@ -2,7 +2,7 @@ package gg.convict.prison.crate;
 
 import gg.convict.prison.crate.reward.CrateReward;
 import gg.convict.prison.crate.util.IntRange;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.CC;
 import lombok.Data;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -10,9 +10,9 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.builder.ItemBuilder;
-import org.hydrapvp.libraries.configuration.defaults.SimpleLocationConfig;
-import org.hydrapvp.libraries.utils.RandomCollection;
+import gg.convict.prison.util.ItemBuilder;
+import gg.convict.prison.util.configuration.defaults.SimpleLocationConfig;
+import gg.convict.prison.util.RandomCollection;
 
 import java.util.ArrayList;
 import java.util.List;

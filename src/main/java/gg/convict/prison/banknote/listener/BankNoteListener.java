@@ -10,8 +10,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.utils.CC;
-import org.hydrapvp.libraries.utils.ChatMessage;
+import gg.convict.prison.util.CC;
+import gg.convict.prison.util.ChatMessage;
 
 import java.math.BigDecimal;
 

@@ -1,12 +1,12 @@
 package gg.convict.prison.region.claimwand.selection;
 
 import gg.convict.prison.region.Region;
+import gg.convict.prison.util.cuboid.Cuboid;
 import lombok.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.cuboid.Cuboid;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.CC;
 
 import java.util.UUID;
 

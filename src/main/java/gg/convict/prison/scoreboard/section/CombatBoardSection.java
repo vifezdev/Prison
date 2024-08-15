@@ -6,8 +6,8 @@ import gg.convict.prison.region.flag.RegionFlag;
 import gg.convict.prison.scoreboard.ScoreboardSection;
 import gg.convict.prison.scoreboard.bar.BarPosition;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.placeholder.PlaceholderService;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.placeholder.PlaceholderService;
+import gg.convict.prison.util.CC;
 
 import java.util.List;
 

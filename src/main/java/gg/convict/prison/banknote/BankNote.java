@@ -5,8 +5,8 @@ import lombok.Data;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.builder.ItemBuilder;
-import org.hydrapvp.libraries.utils.CC;
+import gg.convict.prison.util.ItemBuilder;
+import gg.convict.prison.util.CC;
 
 import java.util.UUID;
 

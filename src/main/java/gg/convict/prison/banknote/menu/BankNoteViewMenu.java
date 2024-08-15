@@ -6,11 +6,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.builder.ItemBuilder;
-import org.hydrapvp.libraries.menu.Button;
-import org.hydrapvp.libraries.menu.Menu;
-import org.hydrapvp.libraries.utils.CC;
-import org.hydrapvp.libraries.utils.TimeUtils;
+import gg.convict.prison.util.ItemBuilder;
+import gg.convict.prison.util.menu.Button;
+import gg.convict.prison.util.menu.Menu;
+import gg.convict.prison.util.CC;
+import gg.convict.prison.util.TimeUtils;
 
 import java.util.*;
 

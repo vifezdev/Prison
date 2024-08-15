@@ -1,7 +1,7 @@
 package gg.convict.prison.leaderboard;
 
 import lombok.Getter;
-import org.hydrapvp.libraries.configuration.StaticConfiguration;
+import gg.convict.prison.util.configuration.StaticConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,8 +3,8 @@ package gg.convict.prison.scoreboard.placeholder;
 import gg.convict.prison.profile.Profile;
 import gg.convict.prison.profile.ProfileModule;
 import gg.convict.prison.profile.util.MoneyUtil;
+import gg.convict.prison.util.placeholder.adapter.PlaceholderAdapter;
 import org.bukkit.entity.Player;
-import org.hydrapvp.libraries.placeholder.adapter.PlaceholderAdapter;
 
 public class PrisonPlaceholderAdapter implements PlaceholderAdapter {
 

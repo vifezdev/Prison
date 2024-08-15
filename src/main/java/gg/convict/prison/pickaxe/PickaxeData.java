@@ -7,8 +7,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.hydrapvp.libraries.utils.CC;
-import org.hydrapvp.libraries.utils.ItemNbtUtil;
+import gg.convict.prison.util.CC;
+import gg.convict.prison.util.ItemNbtUtil;
 
 import java.util.*;
 

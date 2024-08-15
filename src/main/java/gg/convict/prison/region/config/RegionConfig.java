@@ -3,7 +3,7 @@ package gg.convict.prison.region.config;
 import gg.convict.prison.region.Region;
 import gg.convict.prison.region.RegionModule;
 import lombok.Getter;
-import org.hydrapvp.libraries.configuration.StaticConfiguration;
+import gg.convict.prison.util.configuration.StaticConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;

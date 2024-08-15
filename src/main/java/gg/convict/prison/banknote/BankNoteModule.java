@@ -9,12 +9,12 @@ import gg.convict.prison.banknote.command.parameter.CurrencyParameter;
 import gg.convict.prison.banknote.currency.Currency;
 import gg.convict.prison.banknote.listener.BankNoteDupeListener;
 import gg.convict.prison.banknote.listener.BankNoteListener;
+import gg.convict.prison.util.LoreUtil;
 import org.bukkit.Material;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
-import org.hydrapvp.libraries.command.parameter.ParameterType;
-import org.hydrapvp.libraries.plugin.PluginModule;
-import org.hydrapvp.libraries.utils.LoreUtil;
+import gg.convict.prison.util.command.parameter.ParameterType;
+import gg.convict.prison.util.plugin.PluginModule;
 
 import java.util.List;
 import java.util.Map;
