@@ -7,6 +7,10 @@ A fast, lightweight, and fully featured Minecraft 1.8+ Prison plugin. Designed f
 ## Features
 - Private mines (schematics, very optimized)
 - Broadcasts
+- Grids
+- Warps
+- Player settings
+- Claim wand
 - Leaderboards
 - MongoDB & Redis Data storage
 - Custom pickaxe
