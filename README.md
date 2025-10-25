@@ -33,4 +33,6 @@ A fast, lightweight, and fully featured Minecraft 1.8+ Prison plugin. Designed f
 4. Connect your mongo & redis & restart
 
 ---
-Copyright @ vifez 2025
+This was used for convict.gg
+Developed by: curtis & FreddieJLH
+This was NOT developed by me, I took ownership of convict a while back,
